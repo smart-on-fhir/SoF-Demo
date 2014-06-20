@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE43B1DE19547E410017679A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1DD19547E410017679A /* AppDelegate.swift */; };
+		EE43B1E019547E410017679A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1DF19547E410017679A /* MasterViewController.swift */; };
+		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
+		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
+		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
+		EE43B1F319547E410017679A /* SoF_MedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1F219547E410017679A /* SoF_MedListTests.swift */; };
+		EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE43B1ED19547E410017679A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1D019547E410017679A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1D719547E410017679A;
+			remoteInfo = "SoF-MedList";
+		};
+		EE43B20219547EB30017679A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE43B1A919546D880017679A;
+			remoteInfo = "SMART-on-FHIR-iOS";
+		};
+		EE43B20419547EB30017679A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE43B1B319546D880017679A;
+			remoteInfo = "SMART-on-FHIR-iOSTests";
+		};
+		EE43B20819548AF20017679A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1A819546D880017679A;
+			remoteInfo = "SMART-on-FHIR-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE43B1D819547E410017679A /* SoF-MedList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoF-MedList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE43B1DC19547E410017679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE43B1DD19547E410017679A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE43B1DF19547E410017679A /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		EE43B1E119547E410017679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EE43B1E419547E410017679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SoF-MedListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE43B1F119547E410017679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE43B1F219547E410017679A /* SoF_MedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoF_MedListTests.swift; sourceTree = "<group>"; };
+		EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "SMART-on-FHIR.xcodeproj"; path = "SMART-on-FHIR-Cocoa/SMART-on-FHIR.xcodeproj"; sourceTree = "<group>"; };
+		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE43B1D519547E410017679A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE43B1E919547E410017679A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE43B1CF19547E410017679A = {
+			isa = PBXGroup;
+			children = (
+				EE74D049195C110600393DCA /* README.md */,
+				EE43B1DA19547E410017679A /* SoF-MedList */,
+				EE43B1EF19547E410017679A /* SoF-MedListTests */,
+				EE43B1D919547E410017679A /* Products */,
+				EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		EE43B1D919547E410017679A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B1D819547E410017679A /* SoF-MedList.app */,
+				EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE43B1DA19547E410017679A /* SoF-MedList */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B1DD19547E410017679A /* AppDelegate.swift */,
+				EE43B1DF19547E410017679A /* MasterViewController.swift */,
+				EE43B1E119547E410017679A /* DetailViewController.swift */,
+				EE43B1E319547E410017679A /* Main.storyboard */,
+				EE43B1E619547E410017679A /* Images.xcassets */,
+				EE43B1DB19547E410017679A /* Supporting Files */,
+			);
+			path = "SoF-MedList";
+			sourceTree = "<group>";
+		};
+		EE43B1DB19547E410017679A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B1DC19547E410017679A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE43B1EF19547E410017679A /* SoF-MedListTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B1F219547E410017679A /* SoF_MedListTests.swift */,
+				EE43B1F019547E410017679A /* Supporting Files */,
+			);
+			path = "SoF-MedListTests";
+			sourceTree = "<group>";
+		};
+		EE43B1F019547E410017679A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B1F119547E410017679A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE43B1FD19547EB20017679A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE43B20319547EB30017679A /* SMART.framework */,
+				EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE43B1D719547E410017679A /* SoF-MedList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE43B1F619547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedList" */;
+			buildPhases = (
+				EE43B1D419547E410017679A /* Sources */,
+				EE43B1D519547E410017679A /* Frameworks */,
+				EE43B1D619547E410017679A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE43B20919548AF20017679A /* PBXTargetDependency */,
+			);
+			name = "SoF-MedList";
+			productName = "SoF-MedList";
+			productReference = EE43B1D819547E410017679A /* SoF-MedList.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE43B1EB19547E410017679A /* SoF-MedListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE43B1F919547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedListTests" */;
+			buildPhases = (
+				EE43B1E819547E410017679A /* Sources */,
+				EE43B1E919547E410017679A /* Frameworks */,
+				EE43B1EA19547E410017679A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE43B1EE19547E410017679A /* PBXTargetDependency */,
+			);
+			name = "SoF-MedListTests";
+			productName = "SoF-MedListTests";
+			productReference = EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE43B1D019547E410017679A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "SMART Platforms";
+				TargetAttributes = {
+					EE43B1D719547E410017679A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					EE43B1EB19547E410017679A = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = EE43B1D719547E410017679A;
+					};
+				};
+			};
+			buildConfigurationList = EE43B1D319547E410017679A /* Build configuration list for PBXProject "SoF-MedList" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE43B1CF19547E410017679A;
+			productRefGroup = EE43B1D919547E410017679A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EE43B1FD19547EB20017679A /* Products */;
+					ProjectRef = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EE43B1D719547E410017679A /* SoF-MedList */,
+				EE43B1EB19547E410017679A /* SoF-MedListTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EE43B20319547EB30017679A /* SMART.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SMART.framework;
+			remoteRef = EE43B20219547EB30017679A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SMART-on-FHIR-iOSTests.xctest";
+			remoteRef = EE43B20419547EB30017679A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE43B1D619547E410017679A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE43B1E519547E410017679A /* Main.storyboard in Resources */,
+				EE43B1E719547E410017679A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE43B1EA19547E410017679A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE43B1D419547E410017679A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE43B1E219547E410017679A /* DetailViewController.swift in Sources */,
+				EE43B1E019547E410017679A /* MasterViewController.swift in Sources */,
+				EE43B1DE19547E410017679A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE43B1E819547E410017679A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE43B1F319547E410017679A /* SoF_MedListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE43B1EE19547E410017679A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE43B1D719547E410017679A /* SoF-MedList */;
+			targetProxy = EE43B1ED19547E410017679A /* PBXContainerItemProxy */;
+		};
+		EE43B20919548AF20017679A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SMART-on-FHIR-iOS";
+			targetProxy = EE43B20819548AF20017679A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE43B1E319547E410017679A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE43B1E419547E410017679A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE43B1F419547E410017679A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE43B1F519547E410017679A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE43B1F719547E410017679A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "SoF-MedList/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EE43B1F819547E410017679A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "SoF-MedList/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EE43B1FA19547E410017679A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoF-MedList.app/SoF-MedList";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SoF-MedListTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		EE43B1FB19547E410017679A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoF-MedList.app/SoF-MedList";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SoF-MedListTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE43B1D319547E410017679A /* Build configuration list for PBXProject "SoF-MedList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE43B1F419547E410017679A /* Debug */,
+				EE43B1F519547E410017679A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE43B1F619547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE43B1F719547E410017679A /* Debug */,
+				EE43B1F819547E410017679A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE43B1F919547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE43B1FA19547E410017679A /* Debug */,
+				EE43B1FB19547E410017679A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE43B1D019547E410017679A /* Project object */;
+}
