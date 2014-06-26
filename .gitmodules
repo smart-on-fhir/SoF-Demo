@@ -1,0 +1,3 @@
+[submodule "SMART-on-FHIR-Cocoa"]
+	path = SMART-on-FHIR-Cocoa
+	url = https://github.com/p2/SMART-on-FHIR-Cocoa.git
