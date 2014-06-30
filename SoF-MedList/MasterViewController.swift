@@ -58,7 +58,7 @@ class MasterViewController: UITableViewController {
 		return navigationItem.leftBarButtonItem?.title
 	}
 	set(title) {
-		let btn = UIBarButtonItem(title: title ? title! : "Connect", style: UIBarButtonItemStyle.Plain, target: self, action: "selectPatient:")
+		let btn = UIBarButtonItem(title: title ? title! : "Connect", style: .Plain, target: self, action: "selectPatient:")
 		navigationItem.leftBarButtonItem = btn
 	}
 	}
@@ -69,9 +69,10 @@ class MasterViewController: UITableViewController {
 	func selectPatient(sender: AnyObject?) {
 		if navigationItem.leftBarButtonItem === sender {
 			let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-			let barbutton = UIBarButtonItem(customView: activity)
-			barbutton.target = self
-			barbutton.action = "cancelPatientSelect:"		// TODO: doesn't work?
+			let barbutton = UIBarButtonItem(title: "Abort", style: .Plain, target: self, action: "cancelPatientSelect:")
+//			let barbutton = UIBarButtonItem(customView: activity)
+//			barbutton.target = self
+//			barbutton.action = "cancelPatientSelect:"		// TODO: doesn't work?
 			navigationItem.leftBarButtonItem = barbutton
 			activity.startAnimating()
 		}
@@ -79,16 +80,27 @@ class MasterViewController: UITableViewController {
 		let app = UIApplication.sharedApplication().delegate as AppDelegate
 		app.selectRecord { record, error in
 			if error {
-//				let alert = UIAlertView(title: "Record Selection Failed", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK")	// crashes
-				let alert = UIAlertView()
-				alert.title = "Record Selection Failed"
-				alert.message = error!.localizedDescription
-				alert.addButtonWithTitle("OK")
-				alert.show()
+				println(error)
+				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
+//					let alert = UIAlertView(title: "Record Selection Failed", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK")	// crashes
+					let alert = UIAlertView()
+					alert.title = "Record Selection Failed"
+					alert.message = error!.localizedDescription
+					alert.addButtonWithTitle("OK")
+					alert.show()
+				}
 				self.connectButtonTitle = nil
 			}
 			else if let rcrd = record {
 				self.connectButtonTitle = "<Name>"
+			}
+			else {
+				let alert = UIAlertView()
+				alert.title = "Record Selection Failed"
+				alert.message = "Did not receive a record"
+				alert.addButtonWithTitle("OK")
+				alert.show()
+				self.connectButtonTitle = nil
 			}
 		}
 	}

@@ -61,14 +61,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				callback(record: nil, error: error)
 			}
 			else {
-				println("What now?")
+				println("now extract smart.record or something")
 				callback(record: nil, error: nil)
 			}
 		}
 	}
 	
 	func cancelRecordSelection() {
-		smart.abortAuthorize()
+		smart.abort()
 	}
 	
 	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
