@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	@lazy var smart = Client(
 		serverURL: "https://fhir-api.smartplatforms.org",
-		clientId: "175dfc73-9c06-49b4-a79a-110fa50241f0",
-		redirect: "sofmedlist://callback"
+		clientId: "my_mobile_app",
+		redirect: "smartapp://callback"
 	)
 	
 	
@@ -55,16 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	// MARK: - SMART Tasks
 	
-	func selectRecord(callback: (record: AnyObject?, error: NSError?) -> ()) {
-		smart.authorize { error in
-			if error {
-				callback(record: nil, error: error)
-			}
-			else {
-				println("now extract smart.record or something")
-				callback(record: nil, error: nil)
-			}
-		}
+	func selectRecord(callback: (record: Patient?, error: NSError?) -> ()) {
+		smart.authorize(callback)
 	}
 	
 	func cancelRecordSelection() {
@@ -73,9 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
 		if smart.authorizing {
-			if url.absoluteString.hasPrefix("sofmedlist") {
-				return smart.didRedirect(url)
-			}
+			return smart.didRedirect(url)
 		}
 		return false
 	}

@@ -78,7 +78,7 @@ class MasterViewController: UITableViewController {
 		}
 		
 		let app = UIApplication.sharedApplication().delegate as AppDelegate
-		app.selectRecord { record, error in
+		app.selectRecord { patient, error in
 			if error {
 				println(error)
 				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
@@ -91,8 +91,13 @@ class MasterViewController: UITableViewController {
 				}
 				self.connectButtonTitle = nil
 			}
-			else if let rcrd = record {
-				self.connectButtonTitle = "<Name>"
+			else if let pat = patient {
+				if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
+					self.connectButtonTitle = pat.name![0].given![0]
+				}
+				else {
+					self.connectButtonTitle = "Unnamed"
+				}
 			}
 			else {
 				let alert = UIAlertView()

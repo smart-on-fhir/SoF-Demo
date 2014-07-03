@@ -27,7 +27,7 @@
 			<string>SMART on FHIR</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sofmedlist</string>
+				<string>smartapp</string>
 			</array>
 		</dict>
 	</array>
