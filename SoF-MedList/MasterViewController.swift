@@ -81,7 +81,7 @@ class MasterViewController: UITableViewController {
 		app.selectRecord { patient, error in
 			if error {
 				println(error)
-				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
+				if NSURLErrorDomain.stringByRemovingPercentEncoding != error!.domain || NSURLErrorCancelled != error!.code {		// TODO: "stringByRemovingPercentEncoding" used to fix compiler error, remove when possible
 //					let alert = UIAlertView(title: "Record Selection Failed", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK")	// crashes
 					let alert = UIAlertView()
 					alert.title = "Record Selection Failed"
@@ -97,6 +97,11 @@ class MasterViewController: UITableViewController {
 				}
 				else {
 					self.connectButtonTitle = "Unnamed"
+				}
+				
+				// fetch record's observations
+				app.findMeds(pat) { observations, error in
+					
 				}
 			}
 			else {

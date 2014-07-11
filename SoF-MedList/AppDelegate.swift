@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	// MARK: - SMART Tasks
 	
-	func selectRecord(callback: (record: Patient?, error: NSError?) -> ()) {
+	func selectRecord(callback: (patient: Patient?, error: NSError?) -> Void) {
 		smart.authorize(callback)
 	}
 	
@@ -68,6 +68,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			return smart.didRedirect(url)
 		}
 		return false
+	}
+	
+	func findMeds(patient: Patient, callback: ((observations: [Observation]?, error: NSError?) -> Void)) {
+		if let id = patient._localId {
+			let path = MedicationPrescription.search().subject(id).construct()
+			println("Requesting from \(path)")
+			smart.requestJSON(path) { json, error in
+				println("Error: \(error)")
+				println("JSON: \(json)")
+			}
+		}
+		else {
+			callback(observations: nil, error: genSMARTError("Patient does not have a local id", 0))
+		}
 	}
 }
 
