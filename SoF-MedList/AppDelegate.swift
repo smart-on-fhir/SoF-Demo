@@ -70,17 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return false
 	}
 	
-	func findMeds(patient: Patient, callback: ((observations: [Observation]?, error: NSError?) -> Void)) {
+	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
 		if let id = patient._localId {
-			let path = MedicationPrescription.search().subject(id).construct()
-			println("Requesting from \(path)")
-			smart.requestJSON(path) { json, error in
+			MedicationPrescription.search().subject(id).perform(smart.server) { results, error in
 				println("Error: \(error)")
-				println("JSON: \(json)")
+				println("Results: \(results)")
 			}
 		}
 		else {
-			callback(observations: nil, error: genSMARTError("Patient does not have a local id", 0))
+			callback(meds: nil, error: genSMARTError("Patient does not have a local id", 0))
 		}
 	}
 }
