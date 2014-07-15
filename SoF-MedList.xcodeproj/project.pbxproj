@@ -12,18 +12,10 @@
 		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
 		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
 		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
-		EE43B1F319547E410017679A /* SoF_MedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1F219547E410017679A /* SoF_MedListTests.swift */; };
 		EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE43B1ED19547E410017679A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1D019547E410017679A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE43B1D719547E410017679A;
-			remoteInfo = "SoF-MedList";
-		};
 		EE43B20219547EB30017679A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
@@ -55,9 +47,6 @@
 		EE43B1E119547E410017679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EE43B1E419547E410017679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SoF-MedListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE43B1F119547E410017679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE43B1F219547E410017679A /* SoF_MedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoF_MedListTests.swift; sourceTree = "<group>"; };
 		EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "SMART-on-FHIR.xcodeproj"; path = "SMART-on-FHIR-Cocoa/SMART-on-FHIR.xcodeproj"; sourceTree = "<group>"; };
 		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,13 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE43B1E919547E410017679A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,7 +68,6 @@
 			children = (
 				EE74D049195C110600393DCA /* README.md */,
 				EE43B1DA19547E410017679A /* SoF-MedList */,
-				EE43B1EF19547E410017679A /* SoF-MedListTests */,
 				EE43B1D919547E410017679A /* Products */,
 				EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */,
 			);
@@ -96,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				EE43B1D819547E410017679A /* SoF-MedList.app */,
-				EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,23 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				EE43B1DC19547E410017679A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EE43B1EF19547E410017679A /* SoF-MedListTests */ = {
-			isa = PBXGroup;
-			children = (
-				EE43B1F219547E410017679A /* SoF_MedListTests.swift */,
-				EE43B1F019547E410017679A /* Supporting Files */,
-			);
-			path = "SoF-MedListTests";
-			sourceTree = "<group>";
-		};
-		EE43B1F019547E410017679A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EE43B1F119547E410017679A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -169,24 +132,6 @@
 			productReference = EE43B1D819547E410017679A /* SoF-MedList.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EE43B1EB19547E410017679A /* SoF-MedListTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE43B1F919547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedListTests" */;
-			buildPhases = (
-				EE43B1E819547E410017679A /* Sources */,
-				EE43B1E919547E410017679A /* Frameworks */,
-				EE43B1EA19547E410017679A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE43B1EE19547E410017679A /* PBXTargetDependency */,
-			);
-			name = "SoF-MedListTests";
-			productName = "SoF-MedListTests";
-			productReference = EE43B1EC19547E410017679A /* SoF-MedListTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,10 +143,6 @@
 				TargetAttributes = {
 					EE43B1D719547E410017679A = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					EE43B1EB19547E410017679A = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = EE43B1D719547E410017679A;
 					};
 				};
 			};
@@ -225,7 +166,6 @@
 			projectRoot = "";
 			targets = (
 				EE43B1D719547E410017679A /* SoF-MedList */,
-				EE43B1EB19547E410017679A /* SoF-MedListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -257,13 +197,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE43B1EA19547E410017679A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -277,22 +210,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE43B1E819547E410017679A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE43B1F319547E410017679A /* SoF_MedListTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE43B1EE19547E410017679A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE43B1D719547E410017679A /* SoF-MedList */;
-			targetProxy = EE43B1ED19547E410017679A /* PBXContainerItemProxy */;
-		};
 		EE43B20919548AF20017679A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SMART-on-FHIR-iOS";
@@ -417,42 +337,6 @@
 			};
 			name = Release;
 		};
-		EE43B1FA19547E410017679A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoF-MedList.app/SoF-MedList";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SoF-MedListTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		EE43B1FB19547E410017679A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SoF-MedList.app/SoF-MedList";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SoF-MedListTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -470,15 +354,6 @@
 			buildConfigurations = (
 				EE43B1F719547E410017679A /* Debug */,
 				EE43B1F819547E410017679A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE43B1F919547E410017679A /* Build configuration list for PBXNativeTarget "SoF-MedListTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE43B1FA19547E410017679A /* Debug */,
-				EE43B1FB19547E410017679A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@ This example app runs out of the box against our sandbox server.
 To download and run you'll need Xcode 6, perform these steps:
 
 1. Checkout the source code:
+    
     ```bash
     git clone --recursive https://github.com/p2/SoF-MedList.git
     ```
