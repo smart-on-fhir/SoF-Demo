@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	// MARK: - SMART Tasks
 	
-	func selectRecord(callback: (patient: Patient?, error: NSError?) -> Void) {
+	func selectPatient(callback: (patient: Patient?, error: NSError?) -> Void) {
 		smart.authorize(callback)
 	}
 	
@@ -63,23 +63,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		smart.abort()
 	}
 	
-	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
-		if smart.authorizing {
-			return smart.didRedirect(url)
-		}
-		return false
-	}
-	
 	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
 		if let id = patient._localId {
-			MedicationPrescription.search().subject(id).perform(smart.server) { results, error in
-				println("Error: \(error)")
-				println("Results: \(results)")
+			MedicationPrescription.search().patient(id).perform(smart.server) { results, error in		// TODO: the following 11 lines should be taken care of by the SMART framework
+				if error {
+					callback(meds: nil, error: error)
+				}
+				else {
+					var meds: [MedicationPrescription] = []
+					for res in results! {
+						if let med = res as? MedicationPrescription {
+							meds += med
+						}
+					}
+					callback(meds: meds, error: nil)
+				}
 			}
 		}
 		else {
 			callback(meds: nil, error: genSMARTError("Patient does not have a local id", 0))
 		}
+	}
+	
+	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+		if smart.authorizing {
+			return smart.didRedirect(url)
+		}
+		return false
 	}
 }
 
