@@ -71,9 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				}
 				else {
 					var meds: [MedicationPrescription] = []
-					for res in results! {
-						if let med = res as? MedicationPrescription {
-							meds += med
+					if results {
+						for res in results! {
+							if let med = res as? MedicationPrescription {
+								meds += med
+							}
 						}
 					}
 					callback(meds: meds, error: nil)
@@ -85,11 +87,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 	}
 	
+	/*/ You would need this if you were opting to not use an embedded web view
 	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
 		if smart.authorizing {
 			return smart.didRedirect(url)
 		}
 		return false
-	}
+	}	//	*/
 }
 

@@ -94,8 +94,9 @@ class MasterViewController: UITableViewController
 					}
 				}
 			}
+			
+			// no error and no patient: cancelled
 			else {
-				UIAlertView(title: "Patient Selection Failed", message: "Did not receive a patient object, please try again", delegate: nil, cancelButtonTitle: "OK").show()
 				self.connectButtonTitle = nil
 			}
 		}
