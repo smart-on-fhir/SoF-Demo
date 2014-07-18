@@ -113,11 +113,17 @@ class MasterViewController: UITableViewController
 	// MARK: Medication Handling
 	
 	func medicationName(med: MedicationPrescription) -> String {
+		if let medi = med.medication as Medication? {
+			if medi.name {
+				return medi.name!
+			}
+		}
 		if let html = med.text?.div {
+			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
 			let regex = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)
 			return regex.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, html.utf16count), withTemplate: "")
 		}
-		return "No narrative"
+		return "No medication and no narrative"
 	}
 	
 	
