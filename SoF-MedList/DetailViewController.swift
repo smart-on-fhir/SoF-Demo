@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 
-	@IBOutlet var detailDescriptionLabel: UILabel
+	@IBOutlet var detailDescriptionLabel: UILabel?
 	var masterPopoverController: UIPopoverController? = nil
 
 

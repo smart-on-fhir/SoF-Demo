@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
 	var window: UIWindow?
 	
-	@lazy var smart = Client(
+	lazy var smart = Client(
 		serverURL: "https://fhir-api.smartplatforms.org",
 		clientId: "my_mobile_app",
 		redirect: "smartapp://callback"
