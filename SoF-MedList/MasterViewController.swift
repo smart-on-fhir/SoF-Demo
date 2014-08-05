@@ -44,7 +44,7 @@ class MasterViewController: UITableViewController
 	var connectButtonTitle: String? {
 		get { return navigationItem.leftBarButtonItem?.title }
 		set(title) {
-			let btn = UIBarButtonItem(title: title ? title! : "Connect", style: .Plain, target: self, action: "selectPatient:")
+			let btn = UIBarButtonItem(title: title ?? "Connect", style: .Plain, target: self, action: "selectPatient:")
 			navigationItem.leftBarButtonItem = btn
 		}
 	}
@@ -54,20 +54,20 @@ class MasterViewController: UITableViewController
 	@IBAction
 	func selectPatient(sender: AnyObject?) {
 		if navigationItem.leftBarButtonItem === sender {
-//			let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-//			let barbutton = UIBarButtonItem(customView: activity)		// TODO: doesn't send action!
-//			barbutton.target = self
-//			barbutton.action = "cancelPatientSelection:"
+			let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+			let barbutton = UIBarButtonItem(customView: activity)		// TODO: doesn't send action!
+			barbutton.target = self
+			barbutton.action = "cancelPatientSelection:"
 			
-			let barbutton = UIBarButtonItem(title: "Abort", style: .Plain, target: self, action: "cancelPatientSelection:")
+//			let barbutton = UIBarButtonItem(title: "Abort", style: .Plain, target: self, action: "cancelPatientSelection:")
 			previousConnectButtonTitle = navigationItem.leftBarButtonItem?.title
 			navigationItem.leftBarButtonItem = barbutton
-//			activity.startAnimating()
+			activity.startAnimating()
 		}
 		
 		let app = UIApplication.sharedApplication().delegate as AppDelegate
 		app.selectPatient { patient, error in
-			if error {
+			if nil != error {
 				if NSURLErrorDomain.stringByRemovingPercentEncoding != error!.domain || NSURLErrorCancelled != error!.code {		// TODO: "stringByRemovingPercentEncoding" used to fix compiler error, remove when possible
 					UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
 				}
@@ -77,11 +77,11 @@ class MasterViewController: UITableViewController
 				
 				// fetch patient's medications
 				app.findMeds(pat) { meds, error in
-					if error {
+					if nil != error {
 						UIAlertView(title: "Error Fetching Meds", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
 					}
 					else {
-						self.medications = meds ? meds! : []
+						self.medications = meds ?? []
 						self.tableView.reloadData()
 					}
 					
@@ -114,7 +114,7 @@ class MasterViewController: UITableViewController
 	
 	func medicationName(med: MedicationPrescription) -> String {
 		if let medi = med.medication as Medication? {
-			if medi.name {
+			if nil != medi.name {
 				return medi.name!
 			}
 		}

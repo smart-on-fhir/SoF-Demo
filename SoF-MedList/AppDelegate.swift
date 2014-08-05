@@ -66,15 +66,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
 		if let id = patient._localId {
 			MedicationPrescription.search().patient(id).perform(smart.server) { results, error in		// TODO: the following 11 lines should be taken care of by the SMART framework
-				if error {
+				if nil != error {
 					callback(meds: nil, error: error)
 				}
 				else {
 					var meds: [MedicationPrescription] = []
-					if results {
+					if nil != results {
 						for res in results! {
 							if let med = res as? MedicationPrescription {
-								meds += med
+								meds.append(med)
 							}
 						}
 					}
