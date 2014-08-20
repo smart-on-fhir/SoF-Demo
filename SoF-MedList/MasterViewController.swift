@@ -43,8 +43,8 @@ class MasterViewController: UITableViewController
 	
 	var connectButtonTitle: String? {
 		get { return navigationItem.leftBarButtonItem?.title }
-		set(title) {
-			let btn = UIBarButtonItem(title: title ?? "Connect", style: .Plain, target: self, action: "selectPatient:")
+		set {
+			let btn = UIBarButtonItem(title: (newValue ?? "Connect")!, style: .Plain, target: self, action: "selectPatient:")		// TODO: The "!" unwrap is a b6 workaround, remove it
 			navigationItem.leftBarButtonItem = btn
 		}
 	}

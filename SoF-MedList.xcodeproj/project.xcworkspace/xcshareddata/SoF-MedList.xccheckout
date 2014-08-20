@@ -10,41 +10,41 @@
 	<string>SoF-MedList</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>96E8B8A3-4C9C-4455-B7B9-7CDFA94320C9</key>
-		<string>https://github.com/p2/Swift-FHIR.git</string>
-		<key>D51B02D0-A038-4C51-B3C3-7DDA640FB6C4</key>
+		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
 		<string>https://github.com/p2/OAuth2.git</string>
-		<key>EFB6556F-A471-4CDB-8017-3A14AAF4830C</key>
+		<key>23AAFBD591BA505FBAABBB27621941E6A9803CE6</key>
 		<string>https://github.com/p2/SMART-on-FHIR-Cocoa.git</string>
-		<key>F1446830-90E0-4392-885C-387B3726D139</key>
+		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
 		<string>ssh://github.com/p2/SoF-MedList.git</string>
+		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
+		<string>https://github.com/p2/Swift-FHIR.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SoF-MedList.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>96E8B8A3-4C9C-4455-B7B9-7CDFA94320C9</key>
-		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR</string>
-		<key>D51B02D0-A038-4C51-B3C3-7DDA640FB6C4</key>
+		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
 		<string>../../SMART-on-FHIR-Cocoa/OAuth2</string>
-		<key>EFB6556F-A471-4CDB-8017-3A14AAF4830C</key>
+		<key>23AAFBD591BA505FBAABBB27621941E6A9803CE6</key>
 		<string>../../SMART-on-FHIR-Cocoa</string>
-		<key>F1446830-90E0-4392-885C-387B3726D139</key>
+		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
 		<string>../..</string>
+		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
+		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/p2/SoF-MedList.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F1446830-90E0-4392-885C-387B3726D139</string>
+	<string>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D51B02D0-A038-4C51-B3C3-7DDA640FB6C4</string>
+			<string>2045D86BC5D391C299DCC498309E722E037BFF4E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>OAuth2</string>
 		</dict>
@@ -52,7 +52,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EFB6556F-A471-4CDB-8017-3A14AAF4830C</string>
+			<string>23AAFBD591BA505FBAABBB27621941E6A9803CE6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SMART-on-FHIR-Cocoa</string>
 		</dict>
@@ -60,7 +60,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F1446830-90E0-4392-885C-387B3726D139</string>
+			<string>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SoF-MedList</string>
 		</dict>
@@ -68,7 +68,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>96E8B8A3-4C9C-4455-B7B9-7CDFA94320C9</string>
+			<string>CF35077FD7A44320981FE5EE63723881BC15523F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Swift-FHIR</string>
 		</dict>
