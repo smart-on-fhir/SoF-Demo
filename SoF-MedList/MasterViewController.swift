@@ -132,7 +132,9 @@ class MasterViewController: UITableViewController
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow()
-		    ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = medications[indexPath.row]
+			if nil != indexPath {
+				((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = medications[indexPath!.row]
+			}
 		}
 	}
 	
@@ -150,8 +152,8 @@ class MasterViewController: UITableViewController
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
 		let med = medications[indexPath.row]
-		cell.textLabel.text = medicationName(med)
-		println(cell.textLabel.text)
+		cell.textLabel?.text = medicationName(med)
+		println(cell.textLabel?.text)
 		return cell
 	}
 
