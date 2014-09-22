@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lK3-iq-dTg">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="b1B-ec-UlR">
+            <objects>
+                <viewController id="daP-Cj-bEA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i34-Ju-p7P"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hao-Uf-S59"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oOx-9k-lFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMART" translatesAutoresizingMaskIntoConstraints="NO" id="h30-v4-K6O">
+                                <rect key="frame" x="270" y="250" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="89H-qd-4Eh"/>
+                                    <constraint firstAttribute="width" constant="60" id="SPm-kS-xHw"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="h30-v4-K6O" secondAttribute="centerY" constant="20" id="5aT-Wo-2HO"/>
+                            <constraint firstAttribute="centerX" secondItem="h30-v4-K6O" secondAttribute="centerX" id="cHL-hf-dJY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="L9Y-NB-GhG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-dE-AE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="704"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XHH-mE-wtk">
+            <objects>
+                <navigationController id="lK3-iq-dTg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fmx-yd-b4T">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="daP-Cj-bEA" kind="relationship" relationship="rootViewController" id="Fxh-A4-ukN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKo-g9-sKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="478" y="704"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SMART" width="60" height="60"/>
+    </resources>
+</document>
