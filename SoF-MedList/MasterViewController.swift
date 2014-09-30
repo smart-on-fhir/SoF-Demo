@@ -44,8 +44,9 @@ class MasterViewController: UITableViewController
 	var connectButtonTitle: String? {
 		get { return navigationItem.leftBarButtonItem?.title }
 		set {
-			let btn = UIBarButtonItem(title: (newValue ?? "Connect")!, style: .Plain, target: self, action: "selectPatient:")		// TODO: The "!" unwrap is a b6 workaround, remove it
+			let btn = UIBarButtonItem(title: (newValue ?? "Connect"), style: .Plain, target: self, action: "selectPatient:")
 			navigationItem.leftBarButtonItem = btn
+			previousConnectButtonTitle = btn.title
 		}
 	}
 	
@@ -60,7 +61,6 @@ class MasterViewController: UITableViewController
 			barbutton.action = "cancelPatientSelection:"
 			
 //			let barbutton = UIBarButtonItem(title: "Abort", style: .Plain, target: self, action: "cancelPatientSelection:")
-			previousConnectButtonTitle = navigationItem.leftBarButtonItem?.title
 			navigationItem.leftBarButtonItem = barbutton
 			activity.startAnimating()
 		}
@@ -97,7 +97,7 @@ class MasterViewController: UITableViewController
 			
 			// no error and no patient: cancelled
 			else {
-				self.connectButtonTitle = nil
+				self.connectButtonTitle = self.previousConnectButtonTitle
 			}
 		}
 	}
