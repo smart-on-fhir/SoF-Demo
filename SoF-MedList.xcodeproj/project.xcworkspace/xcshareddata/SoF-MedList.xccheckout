@@ -15,12 +15,12 @@
 		<key>23AAFBD591BA505FBAABBB27621941E6A9803CE6</key>
 		<string>https://github.com/p2/SMART-on-FHIR-Cocoa.git</string>
 		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
-		<string>ssh://github.com/p2/SoF-MedList.git</string>
+		<string>github.com:p2/SoF-MedList.git</string>
 		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
 		<string>https://github.com/p2/Swift-FHIR.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SoF-MedList.xcodeproj/project.xcworkspace</string>
+	<string>SoF-MedList.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
@@ -33,7 +33,7 @@
 		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/p2/SoF-MedList.git</string>
+	<string>github.com:p2/SoF-MedList.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

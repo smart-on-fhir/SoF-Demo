@@ -120,8 +120,8 @@ class MasterViewController: UITableViewController
 		}
 		if let html = med.text?.div {
 			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
-			let regex = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)
-			return regex.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, countElements(html)), withTemplate: "")
+			let stripTags = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)!
+			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, countElements(html)), withTemplate: "")
 		}
 		return "No medication and no narrative"
 	}
