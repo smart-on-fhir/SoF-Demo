@@ -23,10 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-		// Override point for customization after application launch.
-		let splitViewController = self.window!.rootViewController as UISplitViewController
-		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as UINavigationController
-		splitViewController.delegate = navigationController.topViewController as DetailViewController
+		if NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
+			let splitViewController = self.window!.rootViewController as UISplitViewController
+			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as UINavigationController
+			splitViewController.delegate = navigationController.topViewController as DetailViewController
+		}
 		return true
 	}
 
