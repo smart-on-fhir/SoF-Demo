@@ -113,7 +113,7 @@ class MasterViewController: UITableViewController
 	// MARK: - Medication Handling
 	
 	func medicationName(med: MedicationPrescription) -> String {
-		if let medi = med.medication as Medication? {
+		if let medi = med.medication?.resolved() {
 			if nil != medi.name {
 				return medi.name!
 			}
@@ -122,6 +122,10 @@ class MasterViewController: UITableViewController
 			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
 			let stripTags = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)!
 			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, countElements(html)), withTemplate: "")
+		}
+		if let display = med.medication?.display {
+			logIfDebug("Falling back to MedicationPrescription.medication.display because I can't resolve the reference")
+			return display
 		}
 		return "No medication and no narrative"
 	}
@@ -153,7 +157,7 @@ class MasterViewController: UITableViewController
 
 		let med = medications[indexPath.row]
 		cell.textLabel?.text = medicationName(med)
-		println(cell.textLabel?.text)
+		
 		return cell
 	}
 
