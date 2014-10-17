@@ -113,10 +113,8 @@ class MasterViewController: UITableViewController
 	// MARK: - Medication Handling
 	
 	func medicationName(med: MedicationPrescription) -> String {
-		if let medi = med.medication?.resolved() {
-			if nil != medi.name {
-				return medi.name!
-			}
+		if let medname = med.medication?.resolved()?.name {
+			return medname
 		}
 		if let html = med.text?.div {
 			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
