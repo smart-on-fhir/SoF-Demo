@@ -67,6 +67,8 @@ class MasterViewController: UITableViewController
 		
 		let app = UIApplication.sharedApplication().delegate as AppDelegate
 		app.selectPatient { patient, error in
+			self.patient = patient
+			
 			if nil != error {
 				if NSURLErrorDomain.stringByRemovingPercentEncoding != error!.domain || NSURLErrorCancelled != error!.code {		// TODO: "stringByRemovingPercentEncoding" used to fix compiler error, remove when possible
 					UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
@@ -134,7 +136,7 @@ class MasterViewController: UITableViewController
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow()
-			if nil != indexPath {
+			if nil != indexPath && indexPath!.row < medications.count {
 				((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = medications[indexPath!.row]
 			}
 		}
@@ -147,18 +149,27 @@ class MasterViewController: UITableViewController
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return medications.count
+		return max(1, medications.count)
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-		let med = medications[indexPath.row]
-		cell.textLabel?.text = medicationName(med)
+		
+		if indexPath.row < medications.count {
+			let med = medications[indexPath.row]
+			cell.textLabel.text = medicationName(med)
+			cell.textLabel.textColor = UIColor.blackColor()
+			cell.userInteractionEnabled = true
+		}
+		else {
+			cell.textLabel.text = (nil == patient) ? "" : "(no medications)"
+			cell.textLabel.textColor = UIColor.grayColor()
+			cell.userInteractionEnabled = false
+		}
 		
 		return cell
 	}
-
+	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
 		    self.detailViewController!.detailItem = medications[indexPath.row]
