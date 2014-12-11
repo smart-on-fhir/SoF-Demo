@@ -131,7 +131,7 @@ class MasterViewController: UITableViewController
 	}
 	
 	
-	// #pragma mark - Segues
+	// MARK: - Segues
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "showDetail" {
@@ -142,7 +142,8 @@ class MasterViewController: UITableViewController
 		}
 	}
 	
-	// #pragma mark - Table View
+	
+	// MARK: - Table View
 	
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return 1
@@ -157,13 +158,13 @@ class MasterViewController: UITableViewController
 		
 		if indexPath.row < medications.count {
 			let med = medications[indexPath.row]
-			cell.textLabel.text = medicationName(med)
-			cell.textLabel.textColor = UIColor.blackColor()
+			cell.textLabel?.text = medicationName(med)
+			cell.textLabel?.textColor = UIColor.blackColor()
 			cell.userInteractionEnabled = true
 		}
 		else {
-			cell.textLabel.text = (nil == patient) ? "" : "(no medications)"
-			cell.textLabel.textColor = UIColor.grayColor()
+			cell.textLabel?.text = (nil == patient) ? "" : "(no medications)"
+			cell.textLabel?.textColor = UIColor.grayColor()
 			cell.userInteractionEnabled = false
 		}
 		
