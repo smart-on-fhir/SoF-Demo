@@ -115,7 +115,7 @@ class MasterViewController: UITableViewController
 	// MARK: - Medication Handling
 	
 	func medicationName(med: MedicationPrescription) -> String {
-		if let medname = med.medication?.resolved()?.name {
+		if let medname = med.medication?.resolved(Medication)?.name {
 			return medname
 		}
 		if let html = med.text?.div {
