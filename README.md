@@ -14,6 +14,9 @@ To download and run you'll need Xcode 6, perform these steps:
 2. Open the project file `SoF-MedList.xcodeproj` in Xcode 6+.
 3. Select an iPhone simulator and press **Run**.
 
+The `master` branch is currently on FHIR _DSTU 1_.  
+The `develop` branch is work in progress for FHIR _DSTU 2_.
+
 ### What's Happening?
 
 This is a simple app based on Apple's master/detail view default code.
