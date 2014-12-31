@@ -11,8 +11,8 @@ import SMART
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
 	var window: UIWindow?
 	
 	lazy var smart = Client(
@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	/*/ You would need this if you were opting to not use an embedded web view
 	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
-		if smart.authorizing {
+		if smart.awaitingAuthCallback {
 			return smart.didRedirect(url)
 		}
 		return false
