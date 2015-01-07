@@ -8,6 +8,7 @@
 
 import UIKit
 import SMART
+import SwiftFHIR
 
 
 @UIApplicationMain

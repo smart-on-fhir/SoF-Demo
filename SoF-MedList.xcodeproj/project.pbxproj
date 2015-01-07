@@ -38,6 +38,20 @@
 			remoteGlobalIDString = EE43B1A819546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOS";
 		};
+		EEF20E281A5D526F009A6EDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECAA7831A5D3DE60062C64B;
+			remoteInfo = "SMART-on-FHIR-OSX";
+		};
+		EEF20E2A1A5D526F009A6EDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE13AA921A5D44D100B901FD;
+			remoteInfo = "SMART-on-FHIR-OSXTests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +124,8 @@
 			children = (
 				EE43B20319547EB30017679A /* SMART.framework */,
 				EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */,
+				EEF20E291A5D526F009A6EDA /* SMART.framework */,
+				EEF20E2B1A5D526F009A6EDA /* SMART-on-FHIR-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +202,20 @@
 			fileType = wrapper.cfbundle;
 			path = "SMART-on-FHIR-iOSTests.xctest";
 			remoteRef = EE43B20419547EB30017679A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEF20E291A5D526F009A6EDA /* SMART.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SMART.framework;
+			remoteRef = EEF20E281A5D526F009A6EDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEF20E2B1A5D526F009A6EDA /* SMART-on-FHIR-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SMART-on-FHIR-OSXTests.xctest";
+			remoteRef = EEF20E2A1A5D526F009A6EDA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -270,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -307,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

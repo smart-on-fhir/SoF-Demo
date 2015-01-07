@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SMART
+import SwiftFHIR
 
 
 class MasterViewController: UITableViewController
@@ -119,12 +119,10 @@ class MasterViewController: UITableViewController
 			return medname
 		}
 		if let html = med.text?.div {
-			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
 			let stripTags = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)!
 			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, countElements(html)), withTemplate: "")
 		}
 		if let display = med.medication?.display {
-			logIfDebug("Falling back to MedicationPrescription.medication.display because I can't resolve the reference")
 			return display
 		}
 		return "No medication and no narrative"
