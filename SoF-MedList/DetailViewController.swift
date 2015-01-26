@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import SwiftFHIR
 
-class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 
+class DetailViewController: UIViewController, UISplitViewControllerDelegate
+{
 	@IBOutlet var detailDescriptionLabel: UILabel?
 	var masterPopoverController: UIPopoverController? = nil
 
-
-	var detailItem: AnyObject? {
+	/// The prescription to show details about
+	var prescription: MedicationPrescription? {
 		didSet {
 		    // Update the view.
 		    self.configureView()
@@ -27,7 +29,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 
 	func configureView() {
 		// Update the user interface for the detail item.
-		if let detail: AnyObject = self.detailItem {
+		if let detail = prescription {
 		    if let label = self.detailDescriptionLabel {
 		        label.text = detail.description
 		    }

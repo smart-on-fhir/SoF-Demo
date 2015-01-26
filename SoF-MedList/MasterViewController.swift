@@ -135,7 +135,7 @@ class MasterViewController: UITableViewController
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow()
 			if nil != indexPath && indexPath!.row < medications.count {
-				((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = medications[indexPath!.row]
+				((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).prescription = medications[indexPath!.row]
 			}
 		}
 	}
@@ -171,7 +171,7 @@ class MasterViewController: UITableViewController
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-		    self.detailViewController!.detailItem = medications[indexPath.row]
+		    self.detailViewController!.prescription = medications[indexPath.row]
 		}
 	}
 }

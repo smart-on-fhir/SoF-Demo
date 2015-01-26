@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 			}
 		}
 		else {
-			callback(meds: nil, error: genSMARTError("Patient does not have a local id", 0))
+			callback(meds: nil, error: genSMARTError("Patient does not have a local id"))
 		}
 	}
 	

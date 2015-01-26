@@ -13,7 +13,12 @@
 		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
 		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
 		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
-		EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
+		EE6E9D391A664B3200CD7BFF /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
+		EE6E9D3A1A664B3200CD7BFF /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EEBE48E81A66578F0046153F /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE36202E1A664EA900A0889F /* OAuth2.framework */; };
+		EEBE48E91A66578F0046153F /* OAuth2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE36202E1A664EA900A0889F /* OAuth2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EEBE48EB1A6658620046153F /* SwiftFHIR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEBE48EA1A6658620046153F /* SwiftFHIR.framework */; };
+		EEBE48EC1A6658620046153F /* SwiftFHIR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EEBE48EA1A6658620046153F /* SwiftFHIR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +36,14 @@
 			remoteGlobalIDString = EE43B1B319546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOSTests";
 		};
-		EE43B20819548AF20017679A /* PBXContainerItemProxy */ = {
+		EE6E9D361A664B1D00CD7BFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1A819546D880017679A;
+			remoteInfo = "SMART-on-FHIR-iOS";
+		};
+		EE6E9D3B1A664B3200CD7BFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
 			proxyType = 1;
@@ -54,8 +66,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EE6E9D3D1A664B3200CD7BFF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE6E9D3A1A664B3200CD7BFF /* SMART.framework in Embed Frameworks */,
+				EEBE48E91A66578F0046153F /* OAuth2.framework in Embed Frameworks */,
+				EEBE48EC1A6658620046153F /* SwiftFHIR.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EE17790119D0A9E200B5826B /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		EE36202E1A664EA900A0889F /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = OAuth2.framework; path = "/Users/pp/Library/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug-iphoneos/OAuth2.framework"; sourceTree = "<absolute>"; };
 		EE43B1D819547E410017679A /* SoF-MedList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoF-MedList.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE43B1DC19547E410017679A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE43B1DD19547E410017679A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +94,7 @@
 		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "SMART-on-FHIR.xcodeproj"; path = "SMART-on-FHIR-Cocoa/SMART-on-FHIR.xcodeproj"; sourceTree = "<group>"; };
 		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EEBE48EA1A6658620046153F /* SwiftFHIR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftFHIR.framework; path = "/Users/pp/Library/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug-iphoneos/SwiftFHIR.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */,
+				EE6E9D391A664B3200CD7BFF /* SMART.framework in Frameworks */,
+				EEBE48E81A66578F0046153F /* OAuth2.framework in Frameworks */,
+				EEBE48EB1A6658620046153F /* SwiftFHIR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +116,7 @@
 			children = (
 				EE74D049195C110600393DCA /* README.md */,
 				EE43B1DA19547E410017679A /* SoF-MedList */,
+				EEA2C9691A716213008726B0 /* Frameworks */,
 				EE43B1D919547E410017679A /* Products */,
 				EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */,
 			);
@@ -130,6 +163,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EEA2C9691A716213008726B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEBE48EA1A6658620046153F /* SwiftFHIR.framework */,
+				EE36202E1A664EA900A0889F /* OAuth2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,11 +182,13 @@
 				EE43B1D419547E410017679A /* Sources */,
 				EE43B1D519547E410017679A /* Frameworks */,
 				EE43B1D619547E410017679A /* Resources */,
+				EE6E9D3D1A664B3200CD7BFF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EE43B20919548AF20017679A /* PBXTargetDependency */,
+				EE6E9D371A664B1D00CD7BFF /* PBXTargetDependency */,
+				EE6E9D3C1A664B3200CD7BFF /* PBXTargetDependency */,
 			);
 			name = "SoF-MedList";
 			productName = "SoF-MedList";
@@ -247,10 +291,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE43B20919548AF20017679A /* PBXTargetDependency */ = {
+		EE6E9D371A664B1D00CD7BFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SMART-on-FHIR-iOS";
-			targetProxy = EE43B20819548AF20017679A /* PBXContainerItemProxy */;
+			targetProxy = EE6E9D361A664B1D00CD7BFF /* PBXContainerItemProxy */;
+		};
+		EE6E9D3C1A664B3200CD7BFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SMART-on-FHIR-iOS";
+			targetProxy = EE6E9D3B1A664B3200CD7BFF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -283,6 +332,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -326,6 +376,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -350,6 +401,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/SMART-on-FHIR-Cocoa/Swift-FHIR/build/Debug",
+				);
 				INFOPLIST_FILE = "SoF-MedList/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
@@ -363,6 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chqycdbooiiyujfqdaezipxxcxql/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/SMART-on-FHIR-Cocoa/Swift-FHIR/build/Debug",
+				);
 				INFOPLIST_FILE = "SoF-MedList/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
