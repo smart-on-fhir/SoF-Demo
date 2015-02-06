@@ -20,13 +20,13 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate
 		didSet {
 		    // Update the view.
 		    self.configureView()
-
+			
 		    if self.masterPopoverController != nil {
 		        self.masterPopoverController!.dismissPopoverAnimated(true)
 		    }
 		}
 	}
-
+	
 	func configureView() {
 		// Update the user interface for the detail item.
 		if let detail = prescription {

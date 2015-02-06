@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	}
 	
 	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
-		if let id = patient._localId {
+		if let id = patient.id {
 			MedicationPrescription.search(["patient": id]).perform(smart.server) { bundle, error in		// TODO: the following 11 lines should be taken care of by the SMART framework
 				if nil != error {
 					callback(meds: nil, error: error)

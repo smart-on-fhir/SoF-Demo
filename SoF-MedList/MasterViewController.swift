@@ -70,7 +70,7 @@ class MasterViewController: UITableViewController
 			self.patient = patient
 			
 			if nil != error {
-				if NSURLErrorDomain.stringByRemovingPercentEncoding != error!.domain || NSURLErrorCancelled != error!.code {		// TODO: "stringByRemovingPercentEncoding" used to fix compiler error, remove when possible
+				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
 					UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
 				}
 				self.connectButtonTitle = nil
