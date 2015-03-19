@@ -16,6 +16,8 @@
 		<string>https://github.com/p2/SMART-on-FHIR-Cocoa.git</string>
 		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
 		<string>github.com:p2/SoF-MedList.git</string>
+		<key>6B7A1C5ACC1903AE24738A17B979A095598A09C9</key>
+		<string>https://github.com/smart-on-fhir/fhir-parser.git</string>
 		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
 		<string>https://github.com/p2/Swift-FHIR.git</string>
 	</dict>
@@ -29,6 +31,8 @@
 		<string>../../SMART-on-FHIR-Cocoa</string>
 		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
 		<string>../..</string>
+		<key>6B7A1C5ACC1903AE24738A17B979A095598A09C9</key>
+		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR/fhir-parser</string>
 		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
 		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR</string>
 	</dict>
@@ -40,6 +44,14 @@
 	<string>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6B7A1C5ACC1903AE24738A17B979A095598A09C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>fhir-parser</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

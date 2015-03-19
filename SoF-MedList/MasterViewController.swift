@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftFHIR
+import SMART
 
 
 class MasterViewController: UITableViewController

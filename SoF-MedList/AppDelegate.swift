@@ -8,7 +8,6 @@
 
 import UIKit
 import SMART
-import SwiftFHIR
 
 
 @UIApplicationMain
@@ -17,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	var window: UIWindow?
 	
 	lazy var smart = Client(
-		serverURL: "https://fhir-api-dstu2.smartplatforms.org",
-		clientId: "my_mobile_app",
-		redirect: "smartapp://callback"
+		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
+		settings: [
+			"client_id": "my_mobile_app",
+			"redirect": "smartapp://callback",
+		]
 	)
 	
 	
