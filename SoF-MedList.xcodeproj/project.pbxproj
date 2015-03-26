@@ -13,52 +13,52 @@
 		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
 		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
 		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
-		EE6E9D391A664B3200CD7BFF /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
-		EE6E9D3A1A664B3200CD7BFF /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE9EE7101AC4B2BE002D8B49 /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9EE7031AC49C3D002D8B49 /* SMART.framework */; };
+		EE9EE7111AC4B2BE002D8B49 /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE9EE7031AC49C3D002D8B49 /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE43B20219547EB30017679A /* PBXContainerItemProxy */ = {
+		EE9EE7021AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1A919546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOS";
 		};
-		EE43B20419547EB30017679A /* PBXContainerItemProxy */ = {
+		EE9EE7041AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1B319546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOSTests";
 		};
-		EE6E9D361A664B1D00CD7BFF /* PBXContainerItemProxy */ = {
+		EE9EE7061AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EE43B1A819546D880017679A;
-			remoteInfo = "SMART-on-FHIR-iOS";
-		};
-		EE6E9D3B1A664B3200CD7BFF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = EE43B1A819546D880017679A;
-			remoteInfo = "SMART-on-FHIR-iOS";
-		};
-		EEF20E281A5D526F009A6EDA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EECAA7831A5D3DE60062C64B;
 			remoteInfo = "SMART-on-FHIR-OSX";
 		};
-		EEF20E2A1A5D526F009A6EDA /* PBXContainerItemProxy */ = {
+		EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE13AA921A5D44D100B901FD;
 			remoteInfo = "SMART-on-FHIR-OSXTests";
+		};
+		EE9EE70E1AC4B2B2002D8B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1A819546D880017679A;
+			remoteInfo = "Swift-SMART-iOS";
+		};
+		EE9EE7121AC4B2BE002D8B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1A819546D880017679A;
+			remoteInfo = "Swift-SMART-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,7 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EE6E9D3A1A664B3200CD7BFF /* SMART.framework in Embed Frameworks */,
+				EE9EE7111AC4B2BE002D8B49 /* SMART.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -85,8 +85,8 @@
 		EE43B1E119547E410017679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EE43B1E419547E410017679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "SMART-on-FHIR.xcodeproj"; path = "SMART-on-FHIR-Cocoa/SMART-on-FHIR.xcodeproj"; sourceTree = "<group>"; };
 		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		EEE4A8521ABA131200B8444B /* SwiftFHIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFHIR.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/SwiftFHIR.framework"; sourceTree = "<group>"; };
 		EEE4A8541ABA131700B8444B /* OAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth2.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/OAuth2.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE6E9D391A664B3200CD7BFF /* SMART.framework in Frameworks */,
+				EE9EE7101AC4B2BE002D8B49 /* SMART.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 				EE43B1DA19547E410017679A /* SoF-MedList */,
 				EEA2C9691A716213008726B0 /* Frameworks */,
 				EE43B1D919547E410017679A /* Products */,
-				EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */,
+				EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,13 +144,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE43B1FD19547EB20017679A /* Products */ = {
+		EE9EE6FB1AC49C3D002D8B49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE43B20319547EB30017679A /* SMART.framework */,
-				EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */,
-				EEF20E291A5D526F009A6EDA /* SMART.framework */,
-				EEF20E2B1A5D526F009A6EDA /* SMART-on-FHIR-OSXTests.xctest */,
+				EE9EE7031AC49C3D002D8B49 /* SMART.framework */,
+				EE9EE7051AC49C3D002D8B49 /* SMART-on-FHIR-iOSTests.xctest */,
+				EE9EE7071AC49C3D002D8B49 /* SMART.framework */,
+				EE9EE7091AC49C3D002D8B49 /* SMART-on-FHIR-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,8 +179,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				EE6E9D371A664B1D00CD7BFF /* PBXTargetDependency */,
-				EE6E9D3C1A664B3200CD7BFF /* PBXTargetDependency */,
+				EE9EE70F1AC4B2B2002D8B49 /* PBXTargetDependency */,
+				EE9EE7131AC4B2BE002D8B49 /* PBXTargetDependency */,
 			);
 			name = "SoF-MedList";
 			productName = "SoF-MedList";
@@ -214,8 +214,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EE43B1FD19547EB20017679A /* Products */;
-					ProjectRef = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+					ProductGroup = EE9EE6FB1AC49C3D002D8B49 /* Products */;
+					ProjectRef = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -226,32 +226,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EE43B20319547EB30017679A /* SMART.framework */ = {
+		EE9EE7031AC49C3D002D8B49 /* SMART.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMART.framework;
-			remoteRef = EE43B20219547EB30017679A /* PBXContainerItemProxy */;
+			remoteRef = EE9EE7021AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */ = {
+		EE9EE7051AC49C3D002D8B49 /* SMART-on-FHIR-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SMART-on-FHIR-iOSTests.xctest";
-			remoteRef = EE43B20419547EB30017679A /* PBXContainerItemProxy */;
+			remoteRef = EE9EE7041AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EEF20E291A5D526F009A6EDA /* SMART.framework */ = {
+		EE9EE7071AC49C3D002D8B49 /* SMART.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMART.framework;
-			remoteRef = EEF20E281A5D526F009A6EDA /* PBXContainerItemProxy */;
+			remoteRef = EE9EE7061AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EEF20E2B1A5D526F009A6EDA /* SMART-on-FHIR-OSXTests.xctest */ = {
+		EE9EE7091AC49C3D002D8B49 /* SMART-on-FHIR-OSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "SMART-on-FHIR-OSXTests.xctest";
-			remoteRef = EEF20E2A1A5D526F009A6EDA /* PBXContainerItemProxy */;
+			remoteRef = EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -283,15 +283,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE6E9D371A664B1D00CD7BFF /* PBXTargetDependency */ = {
+		EE9EE70F1AC4B2B2002D8B49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SMART-on-FHIR-iOS";
-			targetProxy = EE6E9D361A664B1D00CD7BFF /* PBXContainerItemProxy */;
+			name = "Swift-SMART-iOS";
+			targetProxy = EE9EE70E1AC4B2B2002D8B49 /* PBXContainerItemProxy */;
 		};
-		EE6E9D3C1A664B3200CD7BFF /* PBXTargetDependency */ = {
+		EE9EE7131AC4B2BE002D8B49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SMART-on-FHIR-iOS";
-			targetProxy = EE6E9D3B1A664B3200CD7BFF /* PBXContainerItemProxy */;
+			name = "Swift-SMART-iOS";
+			targetProxy = EE9EE7121AC4B2BE002D8B49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

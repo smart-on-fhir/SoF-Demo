@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	// MARK: - SMART Tasks
 	
 	func selectPatient(callback: (patient: Patient?, error: NSError?) -> Void) {
+		smart.authProperties.embedded = true
+		smart.authProperties.granularity = .PatientSelectNative
 		smart.authorize(callback)
 	}
 	
@@ -46,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
 		if let id = patient.id {
-			MedicationPrescription.search(["patient": id]).perform(smart.server) { bundle, error in		// TODO: the following 11 lines should be taken care of by the SMART framework
+			MedicationPrescription.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
 					callback(meds: nil, error: error)
 				}
