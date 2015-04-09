@@ -17,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	lazy var smart = Client(
 		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
+//		baseURL: "http://argonaut.healthintersections.com.au/open/",
 		settings: [
 			"client_id": "my_mobile_app",
 			"redirect": "smartapp://callback",
 		]
 	)
 	
-	
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 		if NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
-			let splitViewController = self.window!.rootViewController as UISplitViewController
-			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as UINavigationController
-			splitViewController.delegate = navigationController.topViewController as DetailViewController
+			let splitViewController = self.window!.rootViewController as! UISplitViewController
+			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
+			splitViewController.delegate = navigationController.topViewController as! DetailViewController
 		}
 		return true
 	}
