@@ -4,7 +4,7 @@ SMART on FHIR
 An **iOS medication list app** using SMART on FHIR via our [iOS SMART on FHIR framework](https://github.com/p2/SMART-on-FHIR-Cocoa).
 
 This example app runs out of the box against our sandbox server.
-To download and run you'll need Xcode 6, perform these steps:
+To download and run you'll need Xcode 6.3, perform these steps:
 
 1. Checkout the source code:
     
@@ -14,8 +14,8 @@ To download and run you'll need Xcode 6, perform these steps:
 2. Open the project file `SoF-MedList.xcodeproj` in Xcode 6+.
 3. Select an iPhone simulator and press **Run**.
 
-The `master` branch is currently on FHIR _DSTU 1_.  
-The `develop` branch is work in progress for FHIR _DSTU 2_.
+The `master` branch is currently supporting the _May 2015 DSTU 2_ ballot ([`0.5.0`](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/FHIR-0.5.0)).  
+The `develop` branch is work in progress for _DSTU 2_.
 
 ### What's Happening?
 
@@ -24,16 +24,16 @@ There are two places where custom code performs interesting tasks:
 
 #### App Delegate
 
-In `AppDelegate.swift` we initialize a (lazy) handle to our SMART client (lines 18-22).
-Then, starting on line 56, there are 3 methods that the App delegate provides but mostly just forwards to the SMART client.
+In `AppDelegate.swift` we initialize a (lazy) handle to our SMART client (lines 18-23).
+Then, starting on line 39, there are 3 methods that the App delegate provides but mostly just forwards to the SMART client.
 The `findMeds:` method constructs a search for medication prescriptions for the selected patient and runs it against the server, as follows:
 
 ```swift
-MedicationPrescription.search().patient(id).perform(...)
+MedicationPrescription.search(["patient": id]).perform(...)
 ```
 
-The last method is implemented to intercept callbacks when the user returns from the browser after logging in and selecting a patient.
-(In a future version this should be handled in an embedded web view).
+The last method is needed when choosing to use iOS's Safari instead of a built-in web view.
+It is implemented to intercept callbacks when the user returns from the browser after logging in and selecting a patient.
 
 #### Master View Controller
 

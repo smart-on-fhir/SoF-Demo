@@ -65,12 +65,12 @@ class MasterViewController: UITableViewController
 			activity.startAnimating()
 		}
 		
-		let app = UIApplication.sharedApplication().delegate as AppDelegate
+		let app = UIApplication.sharedApplication().delegate as! AppDelegate
 		app.selectPatient { patient, error in
 			self.patient = patient
 			
 			if nil != error {
-				if NSURLErrorDomain.stringByRemovingPercentEncoding != error!.domain || NSURLErrorCancelled != error!.code {		// TODO: "stringByRemovingPercentEncoding" used to fix compiler error, remove when possible
+				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
 					UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
 				}
 				self.connectButtonTitle = nil
@@ -105,7 +105,7 @@ class MasterViewController: UITableViewController
 	}
 	
 	func cancelPatientSelection(sender: AnyObject?) {
-		let app = UIApplication.sharedApplication().delegate as AppDelegate
+		let app = UIApplication.sharedApplication().delegate as! AppDelegate
 		app.cancelRecordSelection()
 		
 		connectButtonTitle = previousConnectButtonTitle
@@ -115,16 +115,14 @@ class MasterViewController: UITableViewController
 	// MARK: - Medication Handling
 	
 	func medicationName(med: MedicationPrescription) -> String {
-		if let medname = med.medication?.resolved()?.name {
+		if let medname = med.medication?.resolved(Medication)?.name {
 			return medname
 		}
 		if let html = med.text?.div {
-			logIfDebug("Falling back to MedicationPrescription.narrative to display medication name because I don't have a medication.name")
 			let stripTags = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)!
-			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, countElements(html)), withTemplate: "")
+			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, count(html)), withTemplate: "")
 		}
 		if let display = med.medication?.display {
-			logIfDebug("Falling back to MedicationPrescription.medication.display because I can't resolve the reference")
 			return display
 		}
 		return "No medication and no narrative"
@@ -137,7 +135,7 @@ class MasterViewController: UITableViewController
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow()
 			if nil != indexPath && indexPath!.row < medications.count {
-				((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = medications[indexPath!.row]
+				((segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController).prescription = medications[indexPath!.row]
 			}
 		}
 	}
@@ -154,7 +152,7 @@ class MasterViewController: UITableViewController
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 		
 		if indexPath.row < medications.count {
 			let med = medications[indexPath.row]
@@ -173,7 +171,7 @@ class MasterViewController: UITableViewController
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-		    self.detailViewController!.detailItem = medications[indexPath.row]
+		    self.detailViewController!.prescription = medications[indexPath.row]
 		}
 	}
 }

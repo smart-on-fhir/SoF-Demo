@@ -13,27 +13,27 @@
 		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
 		<string>https://github.com/p2/OAuth2.git</string>
 		<key>23AAFBD591BA505FBAABBB27621941E6A9803CE6</key>
-		<string>https://github.com/p2/SMART-on-FHIR-Cocoa.git</string>
+		<string>https://github.com/smart-on-fhir/Swift-SMART.git</string>
 		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
-		<string>github.com:p2/SoF-MedList.git</string>
+		<string>github.com:smart-on-fhir/SoF-MedList.git</string>
 		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
-		<string>https://github.com/p2/Swift-FHIR.git</string>
+		<string>https://github.com/smart-on-fhir/Swift-FHIR.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SoF-MedList.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>2045D86BC5D391C299DCC498309E722E037BFF4E</key>
-		<string>../../SMART-on-FHIR-Cocoa/OAuth2</string>
+		<string>../..Swift-SMART/OAuth2/</string>
 		<key>23AAFBD591BA505FBAABBB27621941E6A9803CE6</key>
-		<string>../../SMART-on-FHIR-Cocoa</string>
+		<string>../..Swift-SMART/</string>
 		<key>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</key>
 		<string>../..</string>
 		<key>CF35077FD7A44320981FE5EE63723881BC15523F</key>
-		<string>../../SMART-on-FHIR-Cocoa/Swift-FHIR</string>
+		<string>../..Swift-SMART/Swift-FHIR/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:p2/SoF-MedList.git</string>
+	<string>github.com:smart-on-fhir/SoF-MedList.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -52,14 +52,6 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>23AAFBD591BA505FBAABBB27621941E6A9803CE6</string>
-			<key>IDESourceControlWCCName</key>
-			<string>SMART-on-FHIR-Cocoa</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>5B5104A8D16BBC38C1DB2659E91256F2FB86B0B7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SoF-MedList</string>
@@ -71,6 +63,14 @@
 			<string>CF35077FD7A44320981FE5EE63723881BC15523F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Swift-FHIR</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>23AAFBD591BA505FBAABBB27621941E6A9803CE6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swift-SMART</string>
 		</dict>
 	</array>
 </dict>

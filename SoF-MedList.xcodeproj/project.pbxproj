@@ -13,32 +13,68 @@
 		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
 		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
 		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
-		EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE43B20319547EB30017679A /* SMART.framework */; };
+		EE9EE7101AC4B2BE002D8B49 /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9EE7031AC49C3D002D8B49 /* SMART.framework */; };
+		EE9EE7111AC4B2BE002D8B49 /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE9EE7031AC49C3D002D8B49 /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EE43B20219547EB30017679A /* PBXContainerItemProxy */ = {
+		EE9EE7021AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1A919546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOS";
 		};
-		EE43B20419547EB30017679A /* PBXContainerItemProxy */ = {
+		EE9EE7041AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EE43B1B319546D880017679A;
 			remoteInfo = "SMART-on-FHIR-iOSTests";
 		};
-		EE43B20819548AF20017679A /* PBXContainerItemProxy */ = {
+		EE9EE7061AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EECAA7831A5D3DE60062C64B;
+			remoteInfo = "SMART-on-FHIR-OSX";
+		};
+		EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EE13AA921A5D44D100B901FD;
+			remoteInfo = "SMART-on-FHIR-OSXTests";
+		};
+		EE9EE70E1AC4B2B2002D8B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = EE43B1A819546D880017679A;
-			remoteInfo = "SMART-on-FHIR-iOS";
+			remoteInfo = "Swift-SMART-iOS";
+		};
+		EE9EE7121AC4B2BE002D8B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE43B1A819546D880017679A;
+			remoteInfo = "Swift-SMART-iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE6E9D3D1A664B3200CD7BFF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE9EE7111AC4B2BE002D8B49 /* SMART.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EE17790119D0A9E200B5826B /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
@@ -49,8 +85,10 @@
 		EE43B1E119547E410017679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EE43B1E419547E410017679A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "SMART-on-FHIR.xcodeproj"; path = "SMART-on-FHIR-Cocoa/SMART-on-FHIR.xcodeproj"; sourceTree = "<group>"; };
 		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
+		EEE4A8521ABA131200B8444B /* SwiftFHIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFHIR.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/SwiftFHIR.framework"; sourceTree = "<group>"; };
+		EEE4A8541ABA131700B8444B /* OAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth2.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/OAuth2.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE43B20A19548AFB0017679A /* SMART.framework in Frameworks */,
+				EE9EE7101AC4B2BE002D8B49 /* SMART.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +108,9 @@
 			children = (
 				EE74D049195C110600393DCA /* README.md */,
 				EE43B1DA19547E410017679A /* SoF-MedList */,
+				EEA2C9691A716213008726B0 /* Frameworks */,
 				EE43B1D919547E410017679A /* Products */,
-				EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */,
+				EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,13 +144,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE43B1FD19547EB20017679A /* Products */ = {
+		EE9EE6FB1AC49C3D002D8B49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE43B20319547EB30017679A /* SMART.framework */,
-				EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */,
+				EE9EE7031AC49C3D002D8B49 /* SMART.framework */,
+				EE9EE7051AC49C3D002D8B49 /* Swift-SMART-iOSTests.xctest */,
+				EE9EE7071AC49C3D002D8B49 /* SMART.framework */,
+				EE9EE7091AC49C3D002D8B49 /* Swift-SMART-OSXTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EEA2C9691A716213008726B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEE4A8541ABA131700B8444B /* OAuth2.framework */,
+				EEE4A8521ABA131200B8444B /* SwiftFHIR.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,11 +174,13 @@
 				EE43B1D419547E410017679A /* Sources */,
 				EE43B1D519547E410017679A /* Frameworks */,
 				EE43B1D619547E410017679A /* Resources */,
+				EE6E9D3D1A664B3200CD7BFF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EE43B20919548AF20017679A /* PBXTargetDependency */,
+				EE9EE70F1AC4B2B2002D8B49 /* PBXTargetDependency */,
+				EE9EE7131AC4B2BE002D8B49 /* PBXTargetDependency */,
 			);
 			name = "SoF-MedList";
 			productName = "SoF-MedList";
@@ -162,8 +214,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EE43B1FD19547EB20017679A /* Products */;
-					ProjectRef = EE43B1FC19547EB20017679A /* SMART-on-FHIR.xcodeproj */;
+					ProductGroup = EE9EE6FB1AC49C3D002D8B49 /* Products */;
+					ProjectRef = EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -174,18 +226,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EE43B20319547EB30017679A /* SMART.framework */ = {
+		EE9EE7031AC49C3D002D8B49 /* SMART.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SMART.framework;
-			remoteRef = EE43B20219547EB30017679A /* PBXContainerItemProxy */;
+			remoteRef = EE9EE7021AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE43B20519547EB30017679A /* SMART-on-FHIR-iOSTests.xctest */ = {
+		EE9EE7051AC49C3D002D8B49 /* Swift-SMART-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "SMART-on-FHIR-iOSTests.xctest";
-			remoteRef = EE43B20419547EB30017679A /* PBXContainerItemProxy */;
+			path = "Swift-SMART-iOSTests.xctest";
+			remoteRef = EE9EE7041AC49C3D002D8B49 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE9EE7071AC49C3D002D8B49 /* SMART.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SMART.framework;
+			remoteRef = EE9EE7061AC49C3D002D8B49 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE9EE7091AC49C3D002D8B49 /* Swift-SMART-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Swift-SMART-OSXTests.xctest";
+			remoteRef = EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -217,10 +283,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE43B20919548AF20017679A /* PBXTargetDependency */ = {
+		EE9EE70F1AC4B2B2002D8B49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "SMART-on-FHIR-iOS";
-			targetProxy = EE43B20819548AF20017679A /* PBXContainerItemProxy */;
+			name = "Swift-SMART-iOS";
+			targetProxy = EE9EE70E1AC4B2B2002D8B49 /* PBXContainerItemProxy */;
+		};
+		EE9EE7131AC4B2BE002D8B49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Swift-SMART-iOS";
+			targetProxy = EE9EE7121AC4B2BE002D8B49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -253,6 +324,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -270,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -296,6 +368,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -307,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,6 +393,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "SoF-MedList/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
@@ -333,6 +411,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "SoF-MedList/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";

@@ -7,27 +7,29 @@
 //
 
 import UIKit
+import SMART
 
-class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 
+class DetailViewController: UIViewController, UISplitViewControllerDelegate
+{
 	@IBOutlet var detailDescriptionLabel: UILabel?
 	var masterPopoverController: UIPopoverController? = nil
 
-
-	var detailItem: AnyObject? {
+	/// The prescription to show details about
+	var prescription: MedicationPrescription? {
 		didSet {
 		    // Update the view.
 		    self.configureView()
-
+			
 		    if self.masterPopoverController != nil {
 		        self.masterPopoverController!.dismissPopoverAnimated(true)
 		    }
 		}
 	}
-
+	
 	func configureView() {
 		// Update the user interface for the detail item.
-		if let detail: AnyObject = self.detailItem {
+		if let detail = prescription {
 		    if let label = self.detailDescriptionLabel {
 		        label.text = detail.description
 		    }
