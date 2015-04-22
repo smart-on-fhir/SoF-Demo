@@ -148,9 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				EE9EE7031AC49C3D002D8B49 /* SMART.framework */,
-				EE9EE7051AC49C3D002D8B49 /* Swift-SMART-iOSTests.xctest */,
+				EE9EE7051AC49C3D002D8B49 /* SwiftSMART-iOSTests.xctest */,
 				EE9EE7071AC49C3D002D8B49 /* SMART.framework */,
-				EE9EE7091AC49C3D002D8B49 /* Swift-SMART-OSXTests.xctest */,
+				EE9EE7091AC49C3D002D8B49 /* SwiftSMART-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,10 +233,10 @@
 			remoteRef = EE9EE7021AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE9EE7051AC49C3D002D8B49 /* Swift-SMART-iOSTests.xctest */ = {
+		EE9EE7051AC49C3D002D8B49 /* SwiftSMART-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Swift-SMART-iOSTests.xctest";
+			path = "SwiftSMART-iOSTests.xctest";
 			remoteRef = EE9EE7041AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -247,10 +247,10 @@
 			remoteRef = EE9EE7061AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE9EE7091AC49C3D002D8B49 /* Swift-SMART-OSXTests.xctest */ = {
+		EE9EE7091AC49C3D002D8B49 /* SwiftSMART-OSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Swift-SMART-OSXTests.xctest";
+			path = "SwiftSMART-OSXTests.xctest";
 			remoteRef = EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
