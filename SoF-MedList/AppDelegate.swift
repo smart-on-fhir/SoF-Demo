@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	func selectPatient(callback: (patient: Patient?, error: NSError?) -> Void) {
 		smart.authProperties.embedded = true
+//		smart.authProperties.granularity = .PatientSelectWeb		// TODO: needs client update to work with DSTU-2 branch
 		smart.authProperties.granularity = .PatientSelectNative
 		smart.authorize(callback)
 	}
@@ -70,12 +71,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		}
 	}
 	
-	/*/ You would need this if you were opting to not use an embedded web view
-	func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+	// You would need this if you were opting to not use an embedded web view
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
 		if smart.awaitingAuthCallback {
 			return smart.didRedirect(url)
 		}
 		return false
-	}	//	*/
+	}
 }
 
