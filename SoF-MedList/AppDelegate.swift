@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	lazy var smart = Client(
 		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
-//		baseURL: "http://argonaut.healthintersections.com.au/open/",
 		settings: [
 			"client_id": "my_mobile_app",
 			"redirect": "smartapp://callback",
@@ -38,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	func selectPatient(callback: (patient: Patient?, error: NSError?) -> Void) {
 		smart.authProperties.embedded = true
-//		smart.authProperties.granularity = .PatientSelectWeb		// TODO: needs client update to work with DSTU-2 branch
+//		smart.authProperties.granularity = .PatientSelectWeb
 		smart.authProperties.granularity = .PatientSelectNative
 		smart.authorize(callback)
 	}
@@ -51,7 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		if let id = patient.id {
 			MedicationPrescription.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
-					callback(meds: nil, error: error)
+					dispatch_async(dispatch_get_main_queue()) {
+						callback(meds: nil, error: error)
+					}
 				}
 				else {
 					var meds = [MedicationPrescription]()
@@ -62,7 +63,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 							}
 						}
 					}
-					callback(meds: meds, error: nil)
+					dispatch_async(dispatch_get_main_queue()) {
+						callback(meds: meds, error: nil)
+					}
 				}
 			}
 		}
