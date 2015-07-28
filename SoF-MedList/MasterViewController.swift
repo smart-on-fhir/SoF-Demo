@@ -69,29 +69,33 @@ class MasterViewController: UITableViewController
 			self.patient = patient
 			
 			if nil != error {
-				if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
-					UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
+				dispatch_async(dispatch_get_main_queue()) {
+					if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
+						UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
+					}
+					self.connectButtonTitle = nil
 				}
-				self.connectButtonTitle = nil
 			}
 			else if let pat = patient {
 				
 				// fetch patient's medications
 				app.findMeds(pat) { meds, error in
-					if nil != error {
-						UIAlertView(title: "Error Fetching Meds", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
-					}
-					else {
-						self.medications = meds ?? []
-						self.tableView.reloadData()
-					}
-					
-					// finally, change the "connect" button
-					if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
-						self.connectButtonTitle = pat.name![0].given![0]
-					}
-					else {
-						self.connectButtonTitle = "Unnamed"
+					dispatch_async(dispatch_get_main_queue()) {
+						if nil != error {
+							UIAlertView(title: "Error Fetching Meds", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
+						}
+						else {
+							self.medications = meds ?? []
+							self.tableView.reloadData()
+						}
+						
+						// finally, change the "connect" button
+						if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
+							self.connectButtonTitle = pat.name![0].given![0]
+						}
+						else {
+							self.connectButtonTitle = "Unnamed"
+						}
 					}
 				}
 			}
