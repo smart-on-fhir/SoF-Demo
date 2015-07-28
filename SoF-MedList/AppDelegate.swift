@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 {
 	var window: UIWindow?
 	
-	lazy var smart = Client(
+	lazy var smart: Client = Client(
 		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
 		settings: [
 			"client_id": "my_mobile_app",
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	}
 	
 	// You would need this if you were opting to not use an embedded web view
-	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		if smart.awaitingAuthCallback {
 			return smart.didRedirect(url)
 		}
