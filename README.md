@@ -4,18 +4,18 @@ SMART on FHIR
 An **iOS medication list app** using SMART on FHIR via our [iOS SMART on FHIR framework](https://github.com/p2/SMART-on-FHIR-Cocoa).
 
 This example app runs out of the box against our sandbox server.
-To download and run you'll need Xcode 6.3, perform these steps:
+To download and run you'll need Xcode 7, perform these steps:
 
 1. Checkout the source code:
     
     ```bash
     git clone --recursive https://github.com/p2/SoF-MedList.git
     ```
-2. Open the project file `SoF-MedList.xcodeproj` in Xcode 6+.
+2. Open the project file `SoF-MedList.xcodeproj` in Xcode 7+.
 3. Select an iPhone simulator and press **Run**.
 
-The `master` branch is currently supporting the _May 2015 DSTU 2_ ballot ([`0.5.0`](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/FHIR-0.5.0)).  
-The `develop` branch is work in progress for _DSTU 2_.
+The `master` branch is currently on _Swift 2.0_ and the _May 2015 DSTU 2_ ballot version of FHIR ([`0.5.0`](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/FHIR-0.5.0)).  
+Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-MedList/releases) for older releases.
 
 ### What's Happening?
 
