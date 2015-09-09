@@ -33,8 +33,7 @@ class MasterViewController: UITableViewController
 		connectButtonTitle = nil
 		
 		if let split = self.splitViewController {
-		    let controllers = split.viewControllers
-		    self.detailViewController = controllers[controllers.endIndex-1].topViewController as? DetailViewController
+			detailViewController = (split.viewControllers.last as? UINavigationController)?.topViewController as? DetailViewController
 		}
 	}
 	
@@ -123,8 +122,11 @@ class MasterViewController: UITableViewController
 			return medname
 		}
 		if let html = med.text?.div {
-			let stripTags = NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive, error: nil)!
-			return stripTags.stringByReplacingMatchesInString(html, options: nil, range: NSMakeRange(0, count(html)), withTemplate: "")
+			do {
+				let stripTags = try NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive)
+				return stripTags.stringByReplacingMatchesInString(html, options: [], range: NSMakeRange(0, html.characters.count), withTemplate: "")
+			}
+			catch {}
 		}
 		if let display = med.medication?.display {
 			return display
@@ -137,7 +139,7 @@ class MasterViewController: UITableViewController
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "showDetail" {
-		    let indexPath = self.tableView.indexPathForSelectedRow()
+		    let indexPath = self.tableView.indexPathForSelectedRow
 			if nil != indexPath && indexPath!.row < medications.count {
 				((segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController).prescription = medications[indexPath!.row]
 			}
@@ -156,7 +158,7 @@ class MasterViewController: UITableViewController
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 		
 		if indexPath.row < medications.count {
 			let med = medications[indexPath.row]
