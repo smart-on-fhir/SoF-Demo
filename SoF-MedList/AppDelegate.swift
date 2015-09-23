@@ -46,18 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		smart.abort()
 	}
 	
-	func findMeds(patient: Patient, callback: ((meds: [MedicationPrescription]?, error: NSError?) -> Void)) {
+	func findMeds(patient: Patient, callback: ((meds: [MedicationOrder]?, error: NSError?) -> Void)) {
 		if let id = patient.id {
-			MedicationPrescription.search(["patient": id]).perform(smart.server) { bundle, error in
+			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
 					dispatch_async(dispatch_get_main_queue()) {
 						callback(meds: nil, error: error)
 					}
 				}
 				else {
-					var meds = bundle?.entry?
-						.filter() { return $0.resource is MedicationPrescription }
-						.map() { return $0.resource as! MedicationPrescription }
+					let meds = bundle?.entry?
+						.filter() { return $0.resource is MedicationOrder }
+						.map() { return $0.resource as! MedicationOrder }
 					dispatch_async(dispatch_get_main_queue()) {
 						callback(meds: meds, error: nil)
 					}
