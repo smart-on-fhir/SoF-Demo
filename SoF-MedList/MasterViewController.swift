@@ -16,7 +16,7 @@ class MasterViewController: UITableViewController
 	var previousConnectButtonTitle: String?
 	
 	var detailViewController: DetailViewController? = nil
-	var medications: [MedicationPrescription] = []
+	var medications: [MedicationOrder] = []
 	
 	
 	override func awakeFromNib() {
@@ -55,11 +55,13 @@ class MasterViewController: UITableViewController
 	func selectPatient(sender: AnyObject?) {
 		if navigationItem.leftBarButtonItem === sender {
 			let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-			let barbutton = UIBarButtonItem(customView: activity)		// TODO: doesn't send action!
-			barbutton.target = self
-			barbutton.action = "cancelPatientSelection:"
-			
-//			let barbutton = UIBarButtonItem(title: "Abort", style: .Plain, target: self, action: "cancelPatientSelection:")
+			activity.userInteractionEnabled = false
+			let button = UIButton(frame: activity.bounds)
+			button.addSubview(activity)
+			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterX, relatedBy: .Equal, toItem: button, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterY, relatedBy: .Equal, toItem: button, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
+			button.addTarget(self, action: "cancelPatientSelection", forControlEvents: .TouchUpInside)
+			let barbutton = UIBarButtonItem(customView: button)
 			navigationItem.leftBarButtonItem = barbutton
 			activity.startAnimating()
 		}
@@ -102,12 +104,14 @@ class MasterViewController: UITableViewController
 			
 			// no error and no patient: cancelled
 			else {
-				self.connectButtonTitle = self.previousConnectButtonTitle
+				dispatch_async(dispatch_get_main_queue()) {
+					self.connectButtonTitle = self.previousConnectButtonTitle
+				}
 			}
 		}
 	}
 	
-	func cancelPatientSelection(sender: AnyObject?) {
+	func cancelPatientSelection() {
 		let app = UIApplication.sharedApplication().delegate as! AppDelegate
 		app.cancelRecordSelection()
 		
@@ -117,10 +121,13 @@ class MasterViewController: UITableViewController
 	
 	// MARK: - Medication Handling
 	
-	func medicationName(med: MedicationPrescription) -> String {
-		if let medname = med.medication?.resolved(Medication)?.name {
+	func medicationName(med: MedicationOrder) -> String {
+		if let medname = med.medicationCodeableConcept?.coding?.first?.display {
 			return medname
 		}
+//		if let medname = med.medicationReference?.resolved(Medication)?.product?... {
+//			return medname
+//		}
 		if let html = med.text?.div {
 			do {
 				let stripTags = try NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive)
@@ -128,7 +135,7 @@ class MasterViewController: UITableViewController
 			}
 			catch {}
 		}
-		if let display = med.medication?.display {
+		if let display = med.medicationReference?.display {
 			return display
 		}
 		return "No medication and no narrative"

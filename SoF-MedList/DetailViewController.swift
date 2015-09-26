@@ -16,7 +16,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate
 	var masterPopoverController: UIPopoverController? = nil
 
 	/// The prescription to show details about
-	var prescription: MedicationPrescription? {
+	var prescription: MedicationOrder? {
 		didSet {
 		    // Update the view.
 		    self.configureView()
