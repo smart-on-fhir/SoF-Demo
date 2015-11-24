@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	// MARK: - SMART Tasks
 	
-	func selectPatient(callback: (patient: Patient?, error: NSError?) -> Void) {
+	func selectPatient(callback: (patient: Patient?, error: ErrorType?) -> Void) {
 		smart.authProperties.embedded = true
 //		smart.authProperties.granularity = .PatientSelectWeb
 		smart.authProperties.granularity = .PatientSelectNative
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		smart.abort()
 	}
 	
-	func findMeds(patient: Patient, callback: ((meds: [MedicationOrder]?, error: NSError?) -> Void)) {
+	func findMeds(patient: Patient, callback: ((meds: [MedicationOrder]?, error: FHIRError?) -> Void)) {
 		if let id = patient.id {
 			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 			}
 		}
 		else {
-			callback(meds: nil, error: genSMARTError("Patient does not have a local id"))
+			callback(meds: nil, error: FHIRError.Error("Patient does not have a local id"))
 		}
 	}
 	

@@ -70,10 +70,10 @@ class MasterViewController: UITableViewController
 		app.selectPatient { patient, error in
 			self.patient = patient
 			
-			if nil != error {
+			if let error = error {
 				dispatch_async(dispatch_get_main_queue()) {
-					if NSURLErrorDomain != error!.domain || NSURLErrorCancelled != error!.code {
-						UIAlertView(title: "Patient Selection Failed", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK").show()
+					if NSURLErrorDomain != error._domain || NSURLErrorCancelled != error._code {
+						UIAlertView(title: "Patient Selection Failed", message: "\(error)", delegate: self, cancelButtonTitle: "OK").show()
 					}
 					self.connectButtonTitle = nil
 				}
@@ -83,8 +83,8 @@ class MasterViewController: UITableViewController
 				// fetch patient's medications
 				app.findMeds(pat) { meds, error in
 					dispatch_async(dispatch_get_main_queue()) {
-						if nil != error {
-							UIAlertView(title: "Error Fetching Meds", message: error!.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
+						if let error = error {
+							UIAlertView(title: "Error Fetching Meds", message: error.description, delegate: nil, cancelButtonTitle: "OK").show()
 						}
 						else {
 							self.medications = meds ?? []
