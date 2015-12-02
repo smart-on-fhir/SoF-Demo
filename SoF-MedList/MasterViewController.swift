@@ -69,7 +69,6 @@ class MasterViewController: UITableViewController
 		let app = UIApplication.sharedApplication().delegate as! AppDelegate
 		app.selectPatient { patient, error in
 			self.patient = patient
-			
 			if let error = error {
 				dispatch_async(dispatch_get_main_queue()) {
 					if NSURLErrorDomain != error._domain || NSURLErrorCancelled != error._code {
