@@ -43,7 +43,7 @@ class MasterViewController: UITableViewController
 	var connectButtonTitle: String? {
 		get { return navigationItem.leftBarButtonItem?.title }
 		set {
-			let btn = UIBarButtonItem(title: (newValue ?? "Connect"), style: .Plain, target: self, action: "selectPatient:")
+			let btn = UIBarButtonItem(title: (newValue ?? "Connect"), style: .Plain, target: self, action: #selector(MasterViewController.selectPatient(_:)))
 			navigationItem.leftBarButtonItem = btn
 			previousConnectButtonTitle = btn.title
 		}
@@ -60,7 +60,7 @@ class MasterViewController: UITableViewController
 			button.addSubview(activity)
 			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterX, relatedBy: .Equal, toItem: button, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
 			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterY, relatedBy: .Equal, toItem: button, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-			button.addTarget(self, action: "cancelPatientSelection", forControlEvents: .TouchUpInside)
+			button.addTarget(self, action: #selector(MasterViewController.cancelPatientSelection), forControlEvents: .TouchUpInside)
 			let barbutton = UIBarButtonItem(customView: button)
 			navigationItem.leftBarButtonItem = barbutton
 			activity.startAnimating()
