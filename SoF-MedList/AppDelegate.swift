@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 			"redirect": "smartapp://callback",
 			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
 //			"keychain": false,
+			"verbose": true,
 		]
 	)
 	
