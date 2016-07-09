@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		]
 	)
 	
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-		if NSString(string: UIDevice.currentDevice().systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+		if NSString(string: UIDevice.current().systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
 			let splitViewController = self.window!.rootViewController as! UISplitViewController
 			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
 			splitViewController.delegate = navigationController.topViewController as! DetailViewController
@@ -39,11 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	// MARK: - SMART Tasks
 	
-	func selectPatient(callback: (patient: Patient?, error: ErrorType?) -> Void) {
+	func selectPatient(callback: (patient: Patient?, error: ErrorProtocol?) -> Void) {
 		smart.authProperties.embedded = true
-//		smart.authProperties.granularity = .PatientSelectWeb
-		smart.authProperties.granularity = .PatientSelectNative
-		smart.authorize(callback)
+//		smart.authProperties.granularity = .patientSelectWeb
+		smart.authProperties.granularity = .patientSelectNative
+		smart.authorize(callback: callback)
 	}
 	
 	func cancelRecordSelection() {
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		if let id = patient.id {
 			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
-					dispatch_async(dispatch_get_main_queue()) {
+					DispatchQueue.main.async() {
 						callback(meds: nil, error: error)
 					}
 				}
@@ -62,21 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 					let meds = bundle?.entry?
 						.filter() { return $0.resource is MedicationOrder }
 						.map() { return $0.resource as! MedicationOrder }
-					dispatch_async(dispatch_get_main_queue()) {
+					DispatchQueue.main.async() {
 						callback(meds: meds, error: nil)
 					}
 				}
 			}
 		}
 		else {
-			callback(meds: nil, error: FHIRError.Error("Patient does not have a local id"))
+			callback(meds: nil, error: FHIRError.error("Patient does not have a local id"))
 		}
 	}
 	
 	// You would need this if you were opting to not use an embedded web view
-	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		if smart.awaitingAuthCallback {
-			return smart.didRedirect(url)
+			return smart.didRedirect(toURL: url)
 		}
 		return false
 	}

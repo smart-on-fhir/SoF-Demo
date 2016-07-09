@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate
 		    self.configureView()
 			
 		    if self.masterPopoverController != nil {
-		        self.masterPopoverController!.dismissPopoverAnimated(true)
+		        self.masterPopoverController!.dismiss(animated: true)
 		    }
 		}
 	}
@@ -49,15 +49,15 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate
 
 	// #pragma mark - Split view
 
-	func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
+	private func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
 	    barButtonItem.title = "Master" // NSLocalizedString(@"Master", @"Master")
-	    self.navigationItem.setLeftBarButtonItem(barButtonItem, animated: true)
+	    self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
 	    self.masterPopoverController = popoverController
 	}
 
 	func splitViewController(splitController: UISplitViewController, willShowViewController viewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem) {
 	    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-	    self.navigationItem.setLeftBarButtonItem(nil, animated: true)
+	    self.navigationItem.setLeftBarButton(nil, animated: true)
 	    self.masterPopoverController = nil
 	}
 	func splitViewController(splitController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
