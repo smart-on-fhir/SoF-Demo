@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	)
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-		if NSString(string: UIDevice.current().systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
+		if NSString(string: UIDevice.current.systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
 			let splitViewController = self.window!.rootViewController as! UISplitViewController
 			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
 			splitViewController.delegate = navigationController.topViewController as! DetailViewController
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	// MARK: - SMART Tasks
 	
-	func selectPatient(callback: (patient: Patient?, error: ErrorProtocol?) -> Void) {
+	func selectPatient(callback: (patient: Patient?, error: Error?) -> Void) {
 		smart.authProperties.embedded = true
 //		smart.authProperties.granularity = .patientSelectWeb
 		smart.authProperties.granularity = .patientSelectNative
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		smart.abort()
 	}
 	
-	func findMeds(patient: Patient, callback: ((meds: [MedicationOrder]?, error: FHIRError?) -> Void)) {
+	func findMeds(for patient: Patient, callback: ((meds: [MedicationOrder]?, error: FHIRError?) -> Void)) {
 		if let id = patient.id {
 			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		}
 	}
 	
-	// You would need this if you were opting to not use an embedded web view
+	// You need this for Safari and Safari Web View Controller to work
 	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		if smart.awaitingAuthCallback {
 			return smart.didRedirect(toURL: url)

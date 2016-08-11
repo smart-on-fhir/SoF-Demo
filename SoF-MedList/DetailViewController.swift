@@ -49,18 +49,18 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate
 
 	// #pragma mark - Split view
 
-	private func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
+	internal func splitViewController(_ splitController: UISplitViewController, willHide viewController: UIViewController, with barButtonItem: UIBarButtonItem, for popoverController: UIPopoverController) {
 	    barButtonItem.title = "Master" // NSLocalizedString(@"Master", @"Master")
 	    self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
 	    self.masterPopoverController = popoverController
 	}
 
-	func splitViewController(splitController: UISplitViewController, willShowViewController viewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem) {
+	func splitViewController(_ splitController: UISplitViewController, willShow viewController: UIViewController, invalidating barButtonItem: UIBarButtonItem) {
 	    // Called when the view is shown again in the split view, invalidating the button and popover controller.
 	    self.navigationItem.setLeftBarButton(nil, animated: true)
 	    self.masterPopoverController = nil
 	}
-	func splitViewController(splitController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+	func splitViewController(_ splitController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
 	    // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
 	    return true
 	}
