@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	lazy var smart: Client = Client(
 		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
 		settings: [
-//			"client_id": "my_mobile_app",
+			"client_id": "my_mobile_app",
 			"client_name": "SMART on FHIR iOS Medication Sample App",
 			"redirect": "smartapp://callback",
 			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
