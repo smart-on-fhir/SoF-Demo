@@ -14,6 +14,8 @@ class MasterViewController: UITableViewController
 {
 	var patient: Patient?
 	var previousConnectButtonTitle: String?
+    var previousSettingsButtonTitle: String?
+
 	
 	var detailViewController: DetailViewController? = nil
 	var medications: [MedicationOrder] = []
@@ -31,6 +33,7 @@ class MasterViewController: UITableViewController
 		super.viewDidLoad()
 		
 		connectButtonTitle = nil
+        settingsButtonTitle = nil
 		
 		if let split = self.splitViewController {
 			detailViewController = (split.viewControllers.last as? UINavigationController)?.topViewController as? DetailViewController
@@ -48,7 +51,14 @@ class MasterViewController: UITableViewController
 			previousConnectButtonTitle = btn.title
 		}
 	}
-	
+    
+    var settingsButtonTitle: String? {
+        get { return navigationItem.leftBarButtonItem?.title }
+        set {
+            let btn = UIBarButtonItem(title: (newValue ?? "Settings"), style: .Plain, target: self, action: #selector(MasterViewController.showSandboxActionSheetButtonTapped(_:)))
+            navigationItem.rightBarButtonItem = btn
+        }
+    }
 	
 	// MARK: - Patient Handling
 	@IBAction
@@ -75,6 +85,7 @@ class MasterViewController: UITableViewController
 						UIAlertView(title: "Patient Selection Failed", message: "\(error)", delegate: self, cancelButtonTitle: "OK").show()
 					}
 					self.connectButtonTitle = nil
+                    self.settingsButtonTitle = nil
 				}
 			}
 			else if let pat = patient {
@@ -93,9 +104,11 @@ class MasterViewController: UITableViewController
 						// finally, change the "connect" button
 						if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
 							self.connectButtonTitle = pat.name![0].given![0]
+                            self.settingsButtonTitle = nil
 						}
 						else {
 							self.connectButtonTitle = "Unnamed"
+                            self.settingsButtonTitle = nil
 						}
 					}
 				}
@@ -115,6 +128,7 @@ class MasterViewController: UITableViewController
 		app.cancelRecordSelection()
 		
 		connectButtonTitle = previousConnectButtonTitle
+        settingsButtonTitle = previousSettingsButtonTitle
 	}
 	
 	
@@ -186,5 +200,38 @@ class MasterViewController: UITableViewController
 		    self.detailViewController!.prescription = medications[indexPath.row]
 		}
 	}
+    
+    @IBAction func showSandboxActionSheetButtonTapped(sender: UIButton) {
+        
+        // Create the action sheet
+        let myActionSheet = UIAlertController(title: "Sandbox Connector", message: "Which sandbox would you like to use?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        // Smart Sandbox Button
+        let smartSandboxAction = UIAlertAction(title: "SMART on FHIR", style: UIAlertActionStyle.Default) { (action) in
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate;
+            app.smart = app.smartSandbox;
+            print("Using SMART on FHIR sandbox");
+        }
+        
+        // HSPC Sandbox Button
+        let hspcSandboxAction = UIAlertAction(title: "HSPC", style: UIAlertActionStyle.Default) { (action) in
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate;
+            app.smart = app.hspcSandbox;
+            print("Using HSPC sandbox");
+        }
+        
+        // cancel action button
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) in
+            print("Cancel action button tapped")
+        }
+        
+        // add action buttons to action sheet
+        myActionSheet.addAction(smartSandboxAction)
+        myActionSheet.addAction(hspcSandboxAction)
+        myActionSheet.addAction(cancelAction)
+        
+        // present the action sheet
+        self.presentViewController(myActionSheet, animated: true, completion: nil)
+    }
 }
 
