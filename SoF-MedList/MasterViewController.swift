@@ -91,7 +91,7 @@ class MasterViewController: UITableViewController
 						}
 						
 						// finally, change the "connect" button
-						if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
+						if (pat.name?.count ?? 0) > 0 && (pat.name![0].given?.count ?? 0) > 0 {
 							self.connectButtonTitle = pat.name![0].given![0]
 						}
 						else {
@@ -142,8 +142,7 @@ class MasterViewController: UITableViewController
 	
 	
 	// MARK: - Segues
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow
 			if nil != indexPath && indexPath!.row < medications.count {

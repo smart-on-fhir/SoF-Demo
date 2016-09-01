@@ -27,19 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		]
 	)
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-		if NSString(string: UIDevice.current.systemVersion).doubleValue >= 8.0 {			// there is `UISplitViewController` on iOS 7 but not for iPhone
+	func application(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
 			let splitViewController = self.window!.rootViewController as! UISplitViewController
 			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
 			splitViewController.delegate = navigationController.topViewController as! DetailViewController
-		}
+		
 		return true
 	}
 	
 	
 	// MARK: - SMART Tasks
 	
-	func selectPatient(callback: (patient: Patient?, error: Error?) -> Void) {
+	func selectPatient(callback: @escaping (_ patient: Patient?, _ error: Error?) -> Void) {
 		smart.authProperties.embedded = true
 //		smart.authProperties.granularity = .patientSelectWeb
 		smart.authProperties.granularity = .patientSelectNative
@@ -50,12 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		smart.abort()
 	}
 	
-	func findMeds(for patient: Patient, callback: ((meds: [MedicationOrder]?, error: FHIRError?) -> Void)) {
+	func findMeds(for patient: Patient, callback: ((_ meds: [MedicationOrder]?, _ error: FHIRError?) -> Void)) {
 		if let id = patient.id {
 			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
 					DispatchQueue.main.async() {
-						callback(meds: nil, error: error)
+						callback(nil, error)
 					}
 				}
 				else {
@@ -63,20 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 						.filter() { return $0.resource is MedicationOrder }
 						.map() { return $0.resource as! MedicationOrder }
 					DispatchQueue.main.async() {
-						callback(meds: meds, error: nil)
+						callback(meds, nil)
 					}
 				}
 			}
 		}
 		else {
-			callback(meds: nil, error: FHIRError.error("Patient does not have a local id"))
+			callback(nil, FHIRError.error("Patient does not have a local id"))
 		}
 	}
 	
 	// You need this for Safari and Safari Web View Controller to work
-	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 		if smart.awaitingAuthCallback {
-			return smart.didRedirect(toURL: url)
+			return smart.didRedirect(to: url)
 		}
 		return false
 	}
