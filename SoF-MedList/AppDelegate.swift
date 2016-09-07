@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		smart.abort()
 	}
 	
-	func findMeds(for patient: Patient, callback: ((_ meds: [MedicationOrder]?, _ error: FHIRError?) -> Void)) {
+	func findMeds(for patient: Patient, callback: @escaping ((_ meds: [MedicationOrder]?, _ error: FHIRError?) -> Void)) {
 		if let id = patient.id {
 			MedicationOrder.search(["patient": id]).perform(smart.server) { bundle, error in
 				if nil != error {
-					DispatchQueue.main.async() {
+					DispatchQueue.main.async {
 						callback(nil, error)
 					}
 				}
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 					let meds = bundle?.entry?
 						.filter() { return $0.resource is MedicationOrder }
 						.map() { return $0.resource as! MedicationOrder }
-					DispatchQueue.main.async() {
+					DispatchQueue.main.async {
 						callback(meds, nil)
 					}
 				}
