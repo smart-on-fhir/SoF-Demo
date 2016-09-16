@@ -21,7 +21,7 @@ class MasterViewController: UITableViewController
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+		if UIDevice.current.userInterfaceIdiom == .pad {
 		    self.clearsSelectionOnViewWillAppear = false
 		    self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
 		}
@@ -43,7 +43,7 @@ class MasterViewController: UITableViewController
 	var connectButtonTitle: String? {
 		get { return navigationItem.leftBarButtonItem?.title }
 		set {
-			let btn = UIBarButtonItem(title: (newValue ?? "Connect"), style: .Plain, target: self, action: #selector(MasterViewController.selectPatient(_:)))
+			let btn = UIBarButtonItem(title: (newValue ?? "Connect"), style: .plain, target: self, action: #selector(MasterViewController.selectPatient(_:)))
 			navigationItem.leftBarButtonItem = btn
 			previousConnectButtonTitle = btn.title
 		}
@@ -52,25 +52,25 @@ class MasterViewController: UITableViewController
 	
 	// MARK: - Patient Handling
 	@IBAction
-	func selectPatient(sender: AnyObject?) {
+	func selectPatient(_ sender: AnyObject?) {
 		if navigationItem.leftBarButtonItem === sender {
-			let activity = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-			activity.userInteractionEnabled = false
+			let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+			activity.isUserInteractionEnabled = false
 			let button = UIButton(frame: activity.bounds)
 			button.addSubview(activity)
-			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterX, relatedBy: .Equal, toItem: button, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .CenterY, relatedBy: .Equal, toItem: button, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-			button.addTarget(self, action: #selector(MasterViewController.cancelPatientSelection), forControlEvents: .TouchUpInside)
+			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .centerX, relatedBy: .equal, toItem: button, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+			button.addConstraint(NSLayoutConstraint(item: activity, attribute: .centerY, relatedBy: .equal, toItem: button, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+			button.addTarget(self, action: #selector(MasterViewController.cancelPatientSelection), for: .touchUpInside)
 			let barbutton = UIBarButtonItem(customView: button)
 			navigationItem.leftBarButtonItem = barbutton
 			activity.startAnimating()
 		}
 		
-		let app = UIApplication.sharedApplication().delegate as! AppDelegate
+		let app = UIApplication.shared.delegate as! AppDelegate
 		app.selectPatient { patient, error in
 			self.patient = patient
 			if let error = error {
-				dispatch_async(dispatch_get_main_queue()) {
+				DispatchQueue.main.async() {
 					if NSURLErrorDomain != error._domain || NSURLErrorCancelled != error._code {
 						UIAlertView(title: "Patient Selection Failed", message: "\(error)", delegate: self, cancelButtonTitle: "OK").show()
 					}
@@ -80,8 +80,8 @@ class MasterViewController: UITableViewController
 			else if let pat = patient {
 				
 				// fetch patient's medications
-				app.findMeds(pat) { meds, error in
-					dispatch_async(dispatch_get_main_queue()) {
+				app.findMeds(for: pat) { meds, error in
+					DispatchQueue.main.async() {
 						if let error = error {
 							UIAlertView(title: "Error Fetching Meds", message: error.description, delegate: nil, cancelButtonTitle: "OK").show()
 						}
@@ -91,7 +91,7 @@ class MasterViewController: UITableViewController
 						}
 						
 						// finally, change the "connect" button
-						if pat.name?.count > 0 && pat.name![0].given?.count > 0 {
+						if (pat.name?.count ?? 0) > 0 && (pat.name![0].given?.count ?? 0) > 0 {
 							self.connectButtonTitle = pat.name![0].given![0]
 						}
 						else {
@@ -103,7 +103,7 @@ class MasterViewController: UITableViewController
 			
 			// no error and no patient: cancelled
 			else {
-				dispatch_async(dispatch_get_main_queue()) {
+				DispatchQueue.main.async() {
 					self.connectButtonTitle = self.previousConnectButtonTitle
 				}
 			}
@@ -111,7 +111,7 @@ class MasterViewController: UITableViewController
 	}
 	
 	func cancelPatientSelection() {
-		let app = UIApplication.sharedApplication().delegate as! AppDelegate
+		let app = UIApplication.shared.delegate as! AppDelegate
 		app.cancelRecordSelection()
 		
 		connectButtonTitle = previousConnectButtonTitle
@@ -120,7 +120,7 @@ class MasterViewController: UITableViewController
 	
 	// MARK: - Medication Handling
 	
-	func medicationName(med: MedicationOrder) -> String {
+	func medicationName(_ med: MedicationOrder) -> String {
 		if let medname = med.medicationCodeableConcept?.coding?.first?.display {
 			return medname
 		}
@@ -129,8 +129,8 @@ class MasterViewController: UITableViewController
 //		}
 		if let html = med.text?.div {
 			do {
-				let stripTags = try NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .CaseInsensitive)
-				return stripTags.stringByReplacingMatchesInString(html, options: [], range: NSMakeRange(0, html.characters.count), withTemplate: "")
+				let stripTags = try NSRegularExpression(pattern: "(<[^>]+>\\s*)|(\\r?\\n)", options: .caseInsensitive)
+				return stripTags.stringByReplacingMatches(in: html, options: [], range: NSMakeRange(0, html.characters.count), withTemplate: "")
 			}
 			catch {}
 		}
@@ -142,12 +142,11 @@ class MasterViewController: UITableViewController
 	
 	
 	// MARK: - Segues
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "showDetail" {
 		    let indexPath = self.tableView.indexPathForSelectedRow
 			if nil != indexPath && indexPath!.row < medications.count {
-				((segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController).prescription = medications[indexPath!.row]
+				((segue.destination as! UINavigationController).topViewController as! DetailViewController).prescription = medications[indexPath!.row]
 			}
 		}
 	}
@@ -155,34 +154,34 @@ class MasterViewController: UITableViewController
 	
 	// MARK: - Table View
 	
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in: UITableView) -> Int {
 		return 1
 	}
 	
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return max(1, medications.count)
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
 		
 		if indexPath.row < medications.count {
 			let med = medications[indexPath.row]
 			cell.textLabel?.text = medicationName(med)
-			cell.textLabel?.textColor = UIColor.blackColor()
-			cell.userInteractionEnabled = true
+			cell.textLabel?.textColor = UIColor.black
+			cell.isUserInteractionEnabled = true
 		}
 		else {
 			cell.textLabel?.text = (nil == patient) ? "" : "(no medications)"
-			cell.textLabel?.textColor = UIColor.grayColor()
-			cell.userInteractionEnabled = false
+			cell.textLabel?.textColor = UIColor.gray
+			cell.isUserInteractionEnabled = false
 		}
 		
 		return cell
 	}
 	
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if UIDevice.current.userInterfaceIdiom == .pad {
 		    self.detailViewController!.prescription = medications[indexPath.row]
 		}
 	}
