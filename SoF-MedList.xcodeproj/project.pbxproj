@@ -253,7 +253,7 @@
 		EE9EE7091AC49C3D002D8B49 /* SwiftSMART-OSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "SwiftSMART-OSXTests.xctest";
+			path = "SwiftSMART-macOSTests.xctest";
 			remoteRef = EE9EE7081AC49C3D002D8B49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

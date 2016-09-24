@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	var window: UIWindow?
 	
 	lazy var smart: Client = Client(
-		baseURL: "https://fhir-api-dstu2.smarthealthit.org",
+		baseURL: URL(string: "https://fhir-api-dstu2.smarthealthit.org")!,
 		settings: [
 			"client_id": "my_mobile_app",
 			"client_name": "SMART on FHIR iOS Medication Sample App",
@@ -28,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	)
 	
 	func application(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
-			let splitViewController = self.window!.rootViewController as! UISplitViewController
-			let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
-			splitViewController.delegate = navigationController.topViewController as! DetailViewController
+		let splitViewController = self.window!.rootViewController as! UISplitViewController
+		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
+		splitViewController.delegate = navigationController.topViewController as! DetailViewController
 		
 		return true
 	}
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	
 	// MARK: - SMART Tasks
 	
-	func selectPatient(callback: @escaping (_ patient: Patient?, _ error: Error?) -> Void) {
+	func selectPatient(_ callback: @escaping (_ patient: Patient?, _ error: Error?) -> Void) {
 		smart.authProperties.embedded = true
 //		smart.authProperties.granularity = .patientSelectWeb
 		smart.authProperties.granularity = .patientSelectNative
