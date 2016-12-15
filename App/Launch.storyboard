@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lK3-iq-dTg">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lK3-iq-dTg">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,18 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Hao-Uf-S59"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oOx-9k-lFQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SMART" translatesAutoresizingMaskIntoConstraints="NO" id="h30-v4-K6O">
-                                <rect key="frame" x="270" y="250" width="60" height="60"/>
+                                <rect key="frame" x="177" y="318" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="89H-qd-4Eh"/>
                                     <constraint firstAttribute="width" constant="60" id="SPm-kS-xHw"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="h30-v4-K6O" secondAttribute="centerY" constant="20" id="5aT-Wo-2HO"/>
                             <constraint firstAttribute="centerX" secondItem="h30-v4-K6O" secondAttribute="centerX" id="cHL-hf-dJY"/>
@@ -34,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-dE-AE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1159" y="704"/>
+            <point key="canvasLocation" x="1217" y="704"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XHH-mE-wtk">
