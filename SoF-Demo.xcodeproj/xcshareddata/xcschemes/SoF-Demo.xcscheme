@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EE43B1D719547E410017679A"
-               BuildableName = "SoF-MedList.app"
-               BlueprintName = "SoF-MedList"
-               ReferencedContainer = "container:SoF-MedList.xcodeproj">
+               BuildableName = "SoF-Demo.app"
+               BlueprintName = "SoF-Demo"
+               ReferencedContainer = "container:SoF-Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "EE43B1EB19547E410017679A"
                BuildableName = "SoF-MedListTests.xctest"
                BlueprintName = "SoF-MedListTests"
-               ReferencedContainer = "container:SoF-MedList.xcodeproj">
+               ReferencedContainer = "container:SoF-Demo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE43B1D719547E410017679A"
-            BuildableName = "SoF-MedList.app"
-            BlueprintName = "SoF-MedList"
-            ReferencedContainer = "container:SoF-MedList.xcodeproj">
+            BuildableName = "SoF-Demo.app"
+            BlueprintName = "SoF-Demo"
+            ReferencedContainer = "container:SoF-Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE43B1D719547E410017679A"
-            BuildableName = "SoF-MedList.app"
-            BlueprintName = "SoF-MedList"
-            ReferencedContainer = "container:SoF-MedList.xcodeproj">
+            BuildableName = "SoF-Demo.app"
+            BlueprintName = "SoF-Demo"
+            ReferencedContainer = "container:SoF-Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE43B1D719547E410017679A"
-            BuildableName = "SoF-MedList.app"
-            BlueprintName = "SoF-MedList"
-            ReferencedContainer = "container:SoF-MedList.xcodeproj">
+            BuildableName = "SoF-Demo.app"
+            BlueprintName = "SoF-Demo"
+            ReferencedContainer = "container:SoF-Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
