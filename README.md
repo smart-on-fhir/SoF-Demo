@@ -11,11 +11,11 @@ An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](
     ```bash
     git clone --recursive https://github.com/p2/SoF-Demo.git
     ```
-2. Open the project file `SoF-MedList.xcodeproj` in Xcode 8+.
+2. Open the project file `SoF-Demo.xcodeproj` in Xcode 8+.
 3. Select an iPhone simulator and press **Run**.
 
 The `master` branch is currently on _Swift 3.0_ and the _DSTU 2_ (`1.0.2`) version of FHIR ([version `2.8.1` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/2.8.1)).  
-Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-MedList/releases) for older releases.
+Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-Demo/releases) for older releases.
 
 
 ## What's Happening?
