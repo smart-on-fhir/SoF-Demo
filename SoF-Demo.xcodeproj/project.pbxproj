@@ -218,7 +218,6 @@
 				TargetAttributes = {
 					EE43B1D719547E410017679A = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = MH6DGH3QYY;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -427,8 +426,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MH6DGH3QYY;
-				INFOPLIST_FILE = "SoF-MedList/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.smart-on-fhir.ios.demo";
@@ -442,8 +441,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MH6DGH3QYY;
-				INFOPLIST_FILE = "SoF-MedList/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG=1";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.chip.smart-on-fhir.ios.demo";
