@@ -44,13 +44,13 @@ class ResourceListViewController: UITableViewController {
 		let resource = resources![indexPath.row]
 			
 		if let allergyInstance = resource as? AllergyIntolerance {
-			if let allergyName: String = allergyInstance.code?.coding?.first?.display?.string {
+			if let allergyName: String = allergyInstance.code?.displayString() {
 				cell.textLabel?.text = allergyName
 			} else {
 				cell.textLabel?.text = "Allergy"
 			}
 			
-			if let allergyReaction: String = allergyInstance.reaction?.first?.manifestation?.first?.text?.string {
+			if let allergyReaction: String = allergyInstance.reaction?.first?.manifestation?.first?.displayString() {
 				cell.detailTextLabel?.text = "Reaction: " + allergyReaction
 			} else {
 				cell.detailTextLabel?.text = "Reaction Type Unknown"
@@ -58,7 +58,7 @@ class ResourceListViewController: UITableViewController {
 		}
 			
 		else if let conditionInstance = resource as? Condition {
-			if let conditionName: String = conditionInstance.code?.coding?.first?.display?.string {
+			if let conditionName: String = conditionInstance.code?.displayString() {
 				cell.textLabel?.text = conditionName
 			} else {
 				cell.textLabel?.text = "Condition"
@@ -72,9 +72,64 @@ class ResourceListViewController: UITableViewController {
 				cell.detailTextLabel?.text = "Date of onset: Unknown"
 			}
 		}
+            
+        else if let carePlanInstance = resource as? CarePlan {
+            // TODO: in STU3 final, use .title
+            if let displayName: String = carePlanInstance.description_fhir?.string {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Care Plan"
+            }
+            
+            if let period = carePlanInstance.period {
+                cell.detailTextLabel?.text = period.displayString()
+            }
+        }
+            
+        else if let careTeamInstance = resource as? CareTeam {
+            if let displayName: String = careTeamInstance.name?.string {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Care Team"
+            }
+            
+            if let participants = careTeamInstance.participant {
+                cell.detailTextLabel?.text = participants.count.description + " participants"
+            }
+        }
+            
+        else if let diagnosticRequestInstance = resource as? DiagnosticRequest {
+            if let displayName: String = diagnosticRequestInstance.code?.displayString() {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Diagnostic Request"
+            }
+            
+            if let period: Period = diagnosticRequestInstance.occurrencePeriod {
+                cell.detailTextLabel?.text = period.displayString()
+            } else {
+                cell.detailTextLabel?.text = "Unknown request period"
+            }
+        }
+            
+        else if let diagnosticReportInstance = resource as? DiagnosticReport {
+            if let displayName: String = diagnosticReportInstance.code?.displayString() {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Diagnostic Report"
+            }
+            
+            if let effectiveDate: DateTime = diagnosticReportInstance.effectiveDateTime {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM dd, yyyy"
+                cell.detailTextLabel?.text = "Effective date: " + dateFormatter.string(from: effectiveDate.nsDate)
+            } else {
+                cell.detailTextLabel?.text = "Effective date: Unknown"
+            }
+        }
 			
 		else if let documentInstance = resource as? DocumentReference {
-			if let documentName: String = documentInstance.type?.coding?.first?.display?.string {
+			if let documentName: String = documentInstance.type?.displayString() {
 				cell.textLabel?.text = documentName
 			} else if let documentName: String = documentInstance.description_fhir?.string {
 				cell.textLabel?.text = documentName // For Cerner
@@ -90,9 +145,27 @@ class ResourceListViewController: UITableViewController {
 				cell.detailTextLabel?.text = "Document Date Unknown"
 			}
 		}
-			
+            
+        else if let goalInstance = resource as? Goal {
+            if let displayName: String = goalInstance.description_fhir?.displayString() {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Goal"
+            }
+            
+            // TODO: in STU3 final, update to use embedded goal target value (extension in v1.8.0)
+            if let goalDate: FHIRDate = goalInstance.targetDate {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM dd, yyyy"
+                cell.detailTextLabel?.text = "Achieve by: " + dateFormatter.string(from: goalDate.nsDate)
+            }
+            else {
+                cell.detailTextLabel?.text = "Unknown Target Date"
+            }
+        }
+            
 		else if let immunizationInstance = resource as? Immunization {
-			if let immunizationName: String = immunizationInstance.vaccineCode?.coding?.first?.display?.string {
+			if let immunizationName: String = immunizationInstance.vaccineCode?.displayString() {
 				cell.textLabel?.text = immunizationName
 			} else if let immunizationName: String = immunizationInstance.vaccineCode?.text?.string {
 				cell.textLabel?.text = immunizationName
@@ -110,7 +183,7 @@ class ResourceListViewController: UITableViewController {
 		}
 			
 		else if let medRequest = resource as? MedicationRequest {
-			if let medName: String = medRequest.medicationCodeableConcept?.coding?.first?.display?.string {
+			if let medName: String = medRequest.medicationCodeableConcept?.displayString() {
 				cell.textLabel?.text = medName
 			} else if let medName: String = medRequest.medicationReference?.display?.string { // For Epic
 				cell.textLabel?.text = medName
@@ -134,7 +207,7 @@ class ResourceListViewController: UITableViewController {
 				cell.textLabel?.text = "Value Not Available"
 			}
 			
-			if let observationName: String = observationInstance.code?.coding?.first?.display?.string {
+			if let observationName: String = observationInstance.code?.displayString() {
 				cell.detailTextLabel?.text = observationName
 			} else {
 				cell.detailTextLabel?.text = "Observation"
@@ -142,7 +215,7 @@ class ResourceListViewController: UITableViewController {
 		}
 			
 		else if let procedureInstance = resource as? Procedure {
-			if let procedureName: String = procedureInstance.code?.coding?.first?.display?.string {
+			if let procedureName: String = procedureInstance.code?.displayString() {
 				cell.textLabel?.text = procedureName
 			} else {
 				cell.textLabel?.text = "Procedure"
@@ -156,7 +229,19 @@ class ResourceListViewController: UITableViewController {
 				cell.detailTextLabel?.text = "Performed: Unknown Date"
 			}
 		}
-			
+            
+        else if let referralRequestInstance = resource as? ReferralRequest {
+            if let displayName: String = referralRequestInstance.reason?.displayString() {
+                cell.textLabel?.text = displayName
+            } else {
+                cell.textLabel?.text = "Referral Request"
+            }
+            
+            if let specialty: String = referralRequestInstance.specialty?.displayString() {
+                cell.detailTextLabel?.text = "For specialty: " + specialty
+            }
+        }
+            
 		else {
 			cell.textLabel?.text = "\(type(of: resource).resourceType) \(indexPath.row)"
 			cell.detailTextLabel?.text = try? resource.relativeURLPath()

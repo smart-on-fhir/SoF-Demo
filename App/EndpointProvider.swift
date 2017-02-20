@@ -61,15 +61,19 @@ public class EndpointProvider {
 	}
 	
 	public func availableResourceTypes(for endpoint: Endpoint) -> [Resource.Type] {
-		return [
-			AllergyIntolerance.self,
+        return [
+            AllergyIntolerance.self,
 			CarePlan.self,
+			CareTeam.self,
 			Condition.self,
-			DocumentReference.self,
+			DiagnosticRequest.self,
+//			DocumentReference.self,
+			Goal.self,
 			Immunization.self,
 			MedicationRequest.self,
-			//Observation.self,
+			Observation.self,
 			Procedure.self,
+			ReferralRequest.self
 		]
 	}
 }
