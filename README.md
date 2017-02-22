@@ -9,7 +9,7 @@ An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](
 1. Checkout the source code:
     
     ```bash
-    git clone --recursive https://github.com/p2/SoF-Demo.git
+    git clone --recursive https://github.com/smart-on-fhir/SoF-Demo.git
     ```
 2. Open the project file `SoF-Demo.xcodeproj` in Xcode 8+.
 3. Select an iPhone simulator and press **Run**.

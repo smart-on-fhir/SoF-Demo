@@ -64,12 +64,16 @@ public class EndpointProvider {
 		return [
 			AllergyIntolerance.self,
 			CarePlan.self,
+			CareTeam.self,
 			Condition.self,
-			DocumentReference.self,
+			DiagnosticRequest.self,
+//			DocumentReference.self,
+			Goal.self,
 			Immunization.self,
 			MedicationRequest.self,
-			//Observation.self,
+			Observation.self,
 			Procedure.self,
+			ReferralRequest.self
 		]
 	}
 }

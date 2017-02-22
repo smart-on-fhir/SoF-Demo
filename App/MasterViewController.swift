@@ -189,13 +189,15 @@ class MasterViewController: UITableViewController {
 			fhir_logIfDebug("No active endpoint or no valid `patient`, cannot fetch resources")
 			return
 		}
-		tableView.reloadData()
+
+		// reset resourceTypes, including error and resources for each type
+		resourceTypes = endpointProvider?.availableResourceTypes(for: endpoint).map() { return ResourceType(type: $0) } ?? []
 		
 		// load all resources of the desired types for our patient
 		var i = 0
 		for resType in resourceTypes {
 			let ii = i
-			resType.type.search(["patient": patientId]).perform(smart.server) { bundle, error in
+			resType.type.search(["patient": patientId.string]).perform(smart.server) { bundle, error in
 				if nil != error {
 					resType.error = error
 				}
