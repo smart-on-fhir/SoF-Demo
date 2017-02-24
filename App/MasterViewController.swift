@@ -156,8 +156,10 @@ class MasterViewController: UITableViewController {
 		provider.selectPatient() { patient, error in
 			DispatchQueue.main.async() {
 				if let error = error {
-					if NSURLErrorDomain != error._domain || NSURLErrorCancelled != error._code {
-						self.show(error: error, title: "Not Authorized")
+					switch error {
+					case OAuth2Error.requestCancelled:   break
+					case let e where NSURLErrorDomain == e._domain && NSURLErrorCancelled == e._code:   break
+					default:                             self.show(error: error, title: "Not Authorized")
 					}
 					self.connectButtonTitle = nil
 				}

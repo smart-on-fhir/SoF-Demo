@@ -20,6 +20,7 @@
 		EE43B1E219547E410017679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43B1E119547E410017679A /* DetailViewController.swift */; };
 		EE43B1E519547E410017679A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E319547E410017679A /* Main.storyboard */; };
 		EE43B1E719547E410017679A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE43B1E619547E410017679A /* Images.xcassets */; };
+		EEDB85771E60A9810022803D /* DataType+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDB85761E60A9810022803D /* DataType+Utilities.swift */; };
 		EEFC6B371DF5D9A500D03A84 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFC6B361DF5D9A500D03A84 /* Endpoints.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		EE43B1E619547E410017679A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE74D049195C110600393DCA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE9EE6FA1AC49C3D002D8B49 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
+		EEDB85761E60A9810022803D /* DataType+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataType+Utilities.swift"; sourceTree = "<group>"; };
 		EEE4A8521ABA131200B8444B /* SwiftFHIR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftFHIR.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/SwiftFHIR.framework"; sourceTree = "<group>"; };
 		EEE4A8541ABA131700B8444B /* OAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth2.framework; path = "../../../Library/Developer/Xcode/DerivedData/SoF-MedList-chayvockzvlqscavzuotvwnsedsb/Build/Products/Debug-iphoneos/OAuth2.framework"; sourceTree = "<group>"; };
 		EEFC6B361DF5D9A500D03A84 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = SOURCE_ROOT; };
@@ -146,6 +148,7 @@
 				EE3EE2C31DF2C35A00341419 /* EndpointListViewController.swift */,
 				EE3EE2C51DF2CB2B00341419 /* UIViewController+Utilities.swift */,
 				EE3EE2C71DF2DD2700341419 /* Bundle+Utilities.swift */,
+				EEDB85761E60A9810022803D /* DataType+Utilities.swift */,
 				EE43B1E319547E410017679A /* Main.storyboard */,
 				EE17790119D0A9E200B5826B /* Launch.storyboard */,
 				EE43B1E619547E410017679A /* Images.xcassets */,
@@ -303,6 +306,7 @@
 				EE3EE2BD1DF2BDA900341419 /* ResourceListViewController.swift in Sources */,
 				EE43B1DE19547E410017679A /* AppDelegate.swift in Sources */,
 				EEFC6B371DF5D9A500D03A84 /* Endpoints.swift in Sources */,
+				EEDB85771E60A9810022803D /* DataType+Utilities.swift in Sources */,
 				EE3EE2C61DF2CB2B00341419 /* UIViewController+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
