@@ -66,7 +66,7 @@ public class EndpointProvider {
 			CarePlan.self,
 			CareTeam.self,
 			Condition.self,
-			DiagnosticRequest.self,
+			DiagnosticReport.self,
 //			DocumentReference.self,
 			Goal.self,
 			Immunization.self,

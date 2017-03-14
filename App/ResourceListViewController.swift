@@ -98,7 +98,7 @@ class ResourceListViewController: UITableViewController {
 				cell.detailTextLabel?.text = participants.count.description + " participants"
 			}
 		}
-			
+		/*
 		else if let diagnosticRequestInstance = resource as? DiagnosticRequest {
 			if let displayName: String = diagnosticRequestInstance.code?.displayString() {
 				cell.textLabel?.text = displayName
@@ -111,7 +111,7 @@ class ResourceListViewController: UITableViewController {
 			} else {
 				cell.detailTextLabel?.text = "Unknown request period"
 			}
-		}
+		}	//	*/
 			
 		else if let diagnosticReportInstance = resource as? DiagnosticReport {
 			if let displayName: String = diagnosticReportInstance.code?.displayString() {
@@ -156,8 +156,7 @@ class ResourceListViewController: UITableViewController {
 				cell.textLabel?.text = "Goal"
 			}
 			
-			// TODO: in STU3 final, update to use embedded goal target value (extension in v1.8.0)
-			if let goalDate: FHIRDate = goalInstance.targetDate {
+			if let goalDate: FHIRDate = goalInstance.target?.dueDate {
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateStyle = .medium
 				dateFormatter.timeStyle = .none
@@ -237,7 +236,7 @@ class ResourceListViewController: UITableViewController {
 		}
 			
 		else if let referralRequestInstance = resource as? ReferralRequest {
-			if let displayName: String = referralRequestInstance.reason?.displayString() {
+			if let displayName: String = referralRequestInstance.reasonCode?.first?.displayString() {
 				cell.textLabel?.text = displayName
 			} else {
 				cell.textLabel?.text = "Referral Request"
