@@ -14,7 +14,7 @@ An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](
 2. Open the project file `SoF-Demo.xcodeproj` in Xcode 8+.
 3. Select an iPhone simulator and press **Run**.
 
-The `master` branch is currently on _Swift 3.0_ and the _DSTU 2_ (`1.0.2`) version of FHIR ([version `2.8.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/2.8.0)).  
+The `master` branch is currently on _Swift 3.0_ and the _STU-3_ (`3.0.0.11832`) version of FHIR ([version `3.0.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/3.0.0)).  
 Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-Demo/releases) for older releases.
 
 
@@ -42,6 +42,8 @@ This class is totally overblown and performs these things, aside from setting up
 
 In the end, you'll see a list of FHIR resource types and the number of resources available to this patient.
 The app will only load the first page of search results, so the number of resources may be capped at 50.
+
+**NOTE** that not all servers support searching for patients without specifying search parameters, hence the native patient list may be empty.
 
 ### List and Detail View Controller
 
