@@ -41,17 +41,17 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 			}
 		}
 		else {
-			var style = UIFontTextStyle.headline
+			var style = UIFont.TextStyle.headline
 			if #available(iOS 9, *) {
 				style = .title1
 			}
 			let p = NSMutableParagraphStyle()
 			p.alignment = .center
 			p.paragraphSpacingBefore = 200.0
-			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes: [
-				NSFontAttributeName: UIFont.preferredFont(forTextStyle: style),
-				NSParagraphStyleAttributeName: p,
-				])
+			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes: convertToOptionalNSAttributedStringKeyDictionary([
+				convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.preferredFont(forTextStyle: style),
+				convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): p,
+				]))
 			label.attributedText = attr
 		}
 	}
@@ -87,3 +87,14 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	}
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

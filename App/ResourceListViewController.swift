@@ -98,20 +98,6 @@ class ResourceListViewController: UITableViewController {
 				cell.detailTextLabel?.text = participants.count.description + " participants"
 			}
 		}
-		/*
-		else if let diagnosticRequestInstance = resource as? DiagnosticRequest {
-			if let displayName: String = diagnosticRequestInstance.code?.displayString() {
-				cell.textLabel?.text = displayName
-			} else {
-				cell.textLabel?.text = "Diagnostic Request"
-			}
-			
-			if let period: Period = diagnosticRequestInstance.occurrencePeriod {
-				cell.detailTextLabel?.text = period.displayString()
-			} else {
-				cell.detailTextLabel?.text = "Unknown request period"
-			}
-		}	//	*/
 			
 		else if let diagnosticReportInstance = resource as? DiagnosticReport {
 			if let displayName: String = diagnosticReportInstance.code?.displayString() {
@@ -139,7 +125,7 @@ class ResourceListViewController: UITableViewController {
 				cell.textLabel?.text = "Document"
 			}
 			
-			if let documentDate: DateTime = documentInstance.created {
+			if let documentDate: FHIRDate = documentInstance.date?.date {
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateStyle = .medium
 				dateFormatter.timeStyle = .none
@@ -156,7 +142,7 @@ class ResourceListViewController: UITableViewController {
 				cell.textLabel?.text = "Goal"
 			}
 			
-			if let goalDate: FHIRDate = goalInstance.target?.dueDate {
+			if let goalDate: FHIRDate = goalInstance.startDate {
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateStyle = .medium
 				dateFormatter.timeStyle = .none
@@ -176,7 +162,7 @@ class ResourceListViewController: UITableViewController {
 				cell.textLabel?.text = "Immunization"
 			}
 			
-			if let immunizationDate: DateTime = immunizationInstance.date {
+			if let immunizationDate: DateTime = immunizationInstance.occurrenceDateTime {
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateStyle = .medium
 				dateFormatter.timeStyle = .none
@@ -204,7 +190,8 @@ class ResourceListViewController: UITableViewController {
 			
 		else if let observationInstance = resource as? Observation {
 			if let observationValue: String = observationInstance.valueQuantity?.value?.description {
-				cell.textLabel?.text = observationValue + " " + (observationInstance.valueQuantity?.unit?.string)!
+				let units = observationInstance.valueQuantity?.unit?.string ?? "(no units)"
+				cell.textLabel?.text = "\(observationValue) \(units)"
 			} else if let observationValue: String = observationInstance.valueString?.string {
 				cell.textLabel?.text = observationValue
 			} else {
@@ -235,15 +222,17 @@ class ResourceListViewController: UITableViewController {
 			}
 		}
 			
-		else if let referralRequestInstance = resource as? ReferralRequest {
-			if let displayName: String = referralRequestInstance.reasonCode?.first?.displayString() {
+		else if let serviceRequestInstance = resource as? ServiceRequest {
+			if let displayName: String = serviceRequestInstance.code?.displayString() {
 				cell.textLabel?.text = displayName
 			} else {
-				cell.textLabel?.text = "Referral Request"
+				cell.textLabel?.text = "Service Request"
 			}
 			
-			if let specialty: String = referralRequestInstance.specialty?.displayString() {
-				cell.detailTextLabel?.text = "For specialty: \(specialty)"
+			if let requestStatus: String = serviceRequestInstance.status?.rawValue {
+				cell.detailTextLabel?.text = "Status: " + requestStatus
+			} else {
+				cell.detailTextLabel?.text = "Status Not Available"
 			}
 		}
 			
@@ -269,7 +258,7 @@ class ResourceListViewController: UITableViewController {
 
 class ResourceCell: UITableViewCell {
 	
-	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 	}
 	

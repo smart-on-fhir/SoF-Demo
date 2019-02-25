@@ -67,13 +67,13 @@ public class EndpointProvider {
 			CareTeam.self,
 			Condition.self,
 			DiagnosticReport.self,
-//			DocumentReference.self,
+			DocumentReference.self,
 			Goal.self,
 			Immunization.self,
 			MedicationRequest.self,
 			Observation.self,
 			Procedure.self,
-			ReferralRequest.self
+			ServiceRequest.self
 		]
 	}
 }

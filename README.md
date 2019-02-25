@@ -14,7 +14,7 @@ An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](
 2. Open the project file `SoF-Demo.xcodeproj` in Xcode 8+.
 3. Select an iPhone simulator and press **Run**.
 
-The `master` branch is currently on _Swift 3.0_ and the _STU-3_ (`3.0.0.11832`) version of FHIR ([version `3.0.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/3.0.0)).  
+The `master` branch is currently on _Swift 4.2_ and the _R4_ (`4.0.0-a53ec6ee1b`) version of FHIR ([version `4.0.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/4.0.0)).  
 Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-Demo/releases) for older releases.
 
 
