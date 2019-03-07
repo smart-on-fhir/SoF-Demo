@@ -13,6 +13,17 @@ import SMART
 func configuredEndpoints() -> [Endpoint] {
 	var endpoints = [Endpoint]()
 	
+	let hapi = LenientClient(
+		baseURL: URL(string: "http://hapi.fhir.org/baseR4")!,
+		settings: [
+			"client_name": "SMART on FHIR iOS Sample App",
+			"redirect": "smartapp://callback",
+			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
+			])
+	hapi.authProperties.granularity = .patientSelectNative
+	hapi.authProperties.embedded = true
+	endpoints.append(Endpoint(client: hapi, name: "HAPI at fhir.org"))
+	
 	let hspc = LenientClient(
 		baseURL: URL(string: "https://api-v5-r4.hspconsortium.org/testr4/open")!,
 		settings: [
@@ -34,17 +45,6 @@ func configuredEndpoints() -> [Endpoint] {
 	fhirorg.authProperties.granularity = .patientSelectNative
 	fhirorg.authProperties.embedded = true
 	endpoints.append(Endpoint(client: fhirorg, name: "Test at FHIR.org"))
-	
-	let hapi = LenientClient(
-		baseURL: URL(string: "http://hapi.fhir.org/baseR4")!,
-		settings: [
-			"client_name": "SMART on FHIR iOS Sample App",
-			"redirect": "smartapp://callback",
-			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
-			])
-	hapi.authProperties.granularity = .patientSelectNative
-	hapi.authProperties.embedded = true
-	endpoints.append(Endpoint(client: hapi, name: "HAPI at fhir.org"))
 	
 	return endpoints
 }

@@ -13,16 +13,11 @@ import SMART
 class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	
 	@IBOutlet var detailDescriptionLabel: UILabel?
-	var masterPopoverController: UIPopoverController? = nil
 	
 	/// The prescription to show details about
 	var resource: Resource? {
 		didSet {
 			configureView()
-			
-			if masterPopoverController != nil {
-				masterPopoverController!.dismiss(animated: true)
-			}
 		}
 	}
 	
@@ -48,10 +43,9 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 			let p = NSMutableParagraphStyle()
 			p.alignment = .center
 			p.paragraphSpacingBefore = 200.0
-			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes: convertToOptionalNSAttributedStringKeyDictionary([
-				convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.preferredFont(forTextStyle: style),
-				convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): p,
-				]))
+			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes:
+				[NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: style),
+				NSAttributedString.Key.paragraphStyle: p])
 			label.attributedText = attr
 		}
 	}
@@ -64,16 +58,9 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	
 	// MARK: - Split view
 	
-	internal func splitViewController(_ splitController: UISplitViewController, willHide viewController: UIViewController, with barButtonItem: UIBarButtonItem, for popoverController: UIPopoverController) {
-		barButtonItem.title = "Resources" // NSLocalizedString(@"Resources", @"Resources")
-		self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
-		self.masterPopoverController = popoverController
-	}
-	
 	func splitViewController(_ splitController: UISplitViewController, willShow viewController: UIViewController, invalidating barButtonItem: UIBarButtonItem) {
 		// Called when the view is shown again in the split view, invalidating the button and popover controller.
 		self.navigationItem.setLeftBarButton(nil, animated: true)
-		self.masterPopoverController = nil
 	}
 	
 	func splitViewController(_ splitController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
@@ -87,14 +74,3 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	}
 }
 
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
-}
