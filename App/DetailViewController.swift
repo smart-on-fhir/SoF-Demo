@@ -43,9 +43,10 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 			let p = NSMutableParagraphStyle()
 			p.alignment = .center
 			p.paragraphSpacingBefore = 200.0
-			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes:
-				[NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: style),
-				NSAttributedString.Key.paragraphStyle: p])
+			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes: [
+				NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: style),
+				NSAttributedString.Key.paragraphStyle: p,
+				])
 			label.attributedText = attr
 		}
 	}
