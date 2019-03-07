@@ -95,7 +95,7 @@ class MasterViewController: UITableViewController {
 	}
 	
 	func spinningSpinner() -> UIActivityIndicatorView {
-		let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+		let activity = UIActivityIndicatorView(style: .gray)
 		activity.isUserInteractionEnabled = false
 		activity.startAnimating()
 		return activity
@@ -178,7 +178,7 @@ class MasterViewController: UITableViewController {
 		}
 	}
 	
-	func cancelPatientSelection() {
+	@objc func cancelPatientSelection() {
 		endpointProvider?.cancelPatientSelect()
 		connectButtonTitle = previousConnectButtonTitle
 	}
@@ -272,7 +272,7 @@ class MasterViewController: UITableViewController {
 	
 	// MARK: - Generic
 	
-	func dismissModal() {
+	@objc func dismissModal() {
 		dismiss(animated: true)
 	}	
 }

@@ -13,16 +13,11 @@ import SMART
 class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	
 	@IBOutlet var detailDescriptionLabel: UILabel?
-	var masterPopoverController: UIPopoverController? = nil
 	
 	/// The prescription to show details about
 	var resource: Resource? {
 		didSet {
 			configureView()
-			
-			if masterPopoverController != nil {
-				masterPopoverController!.dismiss(animated: true)
-			}
 		}
 	}
 	
@@ -41,7 +36,7 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 			}
 		}
 		else {
-			var style = UIFontTextStyle.headline
+			var style = UIFont.TextStyle.headline
 			if #available(iOS 9, *) {
 				style = .title1
 			}
@@ -49,8 +44,8 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 			p.alignment = .center
 			p.paragraphSpacingBefore = 200.0
 			let attr = NSAttributedString(string: "Select a FHIR Resource first", attributes: [
-				NSFontAttributeName: UIFont.preferredFont(forTextStyle: style),
-				NSParagraphStyleAttributeName: p,
+				NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: style),
+				NSAttributedString.Key.paragraphStyle: p,
 				])
 			label.attributedText = attr
 		}
@@ -64,16 +59,9 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
 	
 	// MARK: - Split view
 	
-	internal func splitViewController(_ splitController: UISplitViewController, willHide viewController: UIViewController, with barButtonItem: UIBarButtonItem, for popoverController: UIPopoverController) {
-		barButtonItem.title = "Resources" // NSLocalizedString(@"Resources", @"Resources")
-		self.navigationItem.setLeftBarButton(barButtonItem, animated: true)
-		self.masterPopoverController = popoverController
-	}
-	
 	func splitViewController(_ splitController: UISplitViewController, willShow viewController: UIViewController, invalidating barButtonItem: UIBarButtonItem) {
 		// Called when the view is shown again in the split view, invalidating the button and popover controller.
 		self.navigationItem.setLeftBarButton(nil, animated: true)
-		self.masterPopoverController = nil
 	}
 	
 	func splitViewController(_ splitController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {

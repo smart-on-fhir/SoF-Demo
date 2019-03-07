@@ -13,19 +13,8 @@ import SMART
 func configuredEndpoints() -> [Endpoint] {
 	var endpoints = [Endpoint]()
 	
-	let hspc = Client(
-		baseURL: URL(string: "https://api3.hspconsortium.org/fhirconnect14/open")!,
-		settings: [
-			"client_name": "SMART on FHIR iOS Sample App",
-			"redirect": "smartapp://callback",
-			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
-			])
-	hspc.authProperties.granularity = .patientSelectNative
-	hspc.authProperties.embedded = true
-	endpoints.append(Endpoint(client: hspc, name: "HSPC"))
-	
-	let hapi = Client(
-		baseURL: URL(string: "https://fhirtest.uhn.ca/baseDstu3")!,
+	let hapi = LenientClient(
+		baseURL: URL(string: "http://hapi.fhir.org/baseR4")!,
 		settings: [
 			"client_name": "SMART on FHIR iOS Sample App",
 			"redirect": "smartapp://callback",
@@ -33,34 +22,30 @@ func configuredEndpoints() -> [Endpoint] {
 			])
 	hapi.authProperties.granularity = .patientSelectNative
 	hapi.authProperties.embedded = true
-	endpoints.append(Endpoint(client: hapi, name: "HAPI Public"))
+	endpoints.append(Endpoint(client: hapi, name: "HAPI at fhir.org"))
 	
-	// Grahame's test server
-	let grahame = Client(
-		baseURL: URL(string: "http://fhir3.healthintersections.com.au/open")!,
+	let hspc = LenientClient(
+		baseURL: URL(string: "https://api-v5-r4.hspconsortium.org/testr4/open")!,
 		settings: [
 			"client_name": "SMART on FHIR iOS Sample App",
 			"redirect": "smartapp://callback",
 			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
 			])
-	grahame.authProperties.granularity = .patientSelectNative
-	grahame.authProperties.embedded = true
-	endpoints.append(Endpoint(client: grahame, name: "Health Intersections"))
+	hspc.authProperties.granularity = .patientSelectNative
+	hspc.authProperties.embedded = true
+	endpoints.append(Endpoint(client: hspc, name: "HSPC Sandbox"))
 	
-	// SMART DSTU-2!! sandbox
-	// Credentials obtained by registering on the SMART website
-	let smart = Client(
-		baseURL: URL(string: "https://fhir-api-dstu2.smarthealthit.org")!,
+	let fhirorg = LenientClient(
+		baseURL: URL(string: "http://test.fhir.org/r4")!,
 		settings: [
-			"client_id": "my_mobile_app",
 			"client_name": "SMART on FHIR iOS Sample App",
 			"redirect": "smartapp://callback",
 			"logo_uri": "https://avatars1.githubusercontent.com/u/7401080",
 			])
-	smart.authProperties.granularity = .patientSelectNative
-	smart.authProperties.embedded = true
-	endpoints.append(Endpoint(client: smart, name: "SMART"))
-
+	fhirorg.authProperties.granularity = .patientSelectNative
+	fhirorg.authProperties.embedded = true
+	endpoints.append(Endpoint(client: fhirorg, name: "Test at FHIR.org"))
+	
 	return endpoints
 }
 
