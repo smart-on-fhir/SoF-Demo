@@ -27,6 +27,6 @@ extension SMART.Bundle {
 	*/
 	func entries<T: Resource>(ofType type: T.Type, typeName name: String) -> [Resource]? {
 		//print("===>  Filtering for type \(T.self) [\(name)]")
-		return entry?.filter() { return nil != $0.resource && type(of: $0.resource!).resourceType == name }.map() { return $0.resource! }
+		return entry?.filter() { return nil != $0.resource && Swift.type(of: $0.resource!).resourceType == name }.map() { return $0.resource! }
 	}
 }

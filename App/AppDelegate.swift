@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var endpointProvider = EndpointProvider()
 	
-	func application(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+	func application(_ app: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 		let splitViewController = self.window!.rootViewController as! UISplitViewController
 		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as! UINavigationController
 		splitViewController.delegate = navigationController.topViewController as! DetailViewController
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	// You need this for Safari and Safari Web View Controller to work
-	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 		guard let smart = endpointProvider.activeEndpoint?.client else {
 			window?.rootViewController?.show(error: AppError.noActiveEndpoint, title: "Not Set Up")
 			return false
