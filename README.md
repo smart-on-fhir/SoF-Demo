@@ -1,7 +1,9 @@
 SMART on FHIR
 =============
 
-An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](https://github.com/p2/SMART-on-FHIR-Cocoa).
+An **iOS sample app** using SMART on FHIR via the [iOS SMART on FHIR framework](https://github.com/smart-on-fhir/Swift-SMART).
+
+This project requires XCode 11+ for use of Swift Package Manager (SPM).
 
 
 ## Installation
@@ -11,10 +13,10 @@ An **iOS sample app** using SMART on FHIR via our [iOS SMART on FHIR framework](
     ```bash
     git clone --recursive https://github.com/smart-on-fhir/SoF-Demo.git
     ```
-2. Open the project file `SoF-Demo.xcodeproj` in Xcode 8+.
+2. Open the project file `SoF-Demo.xcodeproj` in Xcode 11+.
 3. Select an iPhone simulator and press **Run**.
 
-The `master` branch is currently on _Swift 4.2_ and the _R4_ (`4.0.0-a53ec6ee1b`) version of FHIR ([version `4.0.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/4.0.0)).  
+The `master` branch is currently on _Swift 5.0_ and the _R4_ (`4.0.0-a53ec6ee1b`) version of FHIR ([version `4.0.0` of the SMART framework](https://github.com/smart-on-fhir/Swift-SMART/releases/tag/4.0.0)).  
 Check the `develop` branch for bleeding edge updates, if any, and the [tags](https://github.com/smart-on-fhir/SoF-Demo/releases) for older releases.
 
 
