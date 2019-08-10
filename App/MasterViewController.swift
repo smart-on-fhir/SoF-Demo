@@ -57,10 +57,6 @@ class MasterViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		didSelectEndpoint()
-		
-		if let split = self.splitViewController {
-			detailViewController = (split.viewControllers.last as? UINavigationController)?.topViewController as? DetailViewController
-		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
