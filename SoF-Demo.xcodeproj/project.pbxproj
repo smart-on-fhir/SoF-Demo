@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B4EE6D1722FF3DC2004BC0D4 /* SMART in Frameworks */ = {isa = PBXBuildFile; productRef = B4EE6D1622FF3DC2004BC0D4 /* SMART */; };
+		B4BC3F9523289BC00097F26D /* SMART in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC3F9423289BC00097F26D /* SMART */; };
 		B4FA94B922239D4900BD72A1 /* LenientClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FA94B822239D4900BD72A1 /* LenientClient.swift */; };
 		EE17790219D0A9E200B5826B /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE17790119D0A9E200B5826B /* Launch.storyboard */; };
 		EE3EE2BD1DF2BDA900341419 /* ResourceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EE2BC1DF2BDA900341419 /* ResourceListViewController.swift */; };
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4EE6D1722FF3DC2004BC0D4 /* SMART in Frameworks */,
+				B4BC3F9523289BC00097F26D /* SMART in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			);
 			name = "SoF-Demo";
 			packageProductDependencies = (
-				B4EE6D1622FF3DC2004BC0D4 /* SMART */,
+				B4BC3F9423289BC00097F26D /* SMART */,
 			);
 			productName = "SoF-MedList";
 			productReference = EE43B1D819547E410017679A /* SoF-Demo.app */;
@@ -167,7 +167,7 @@
 			);
 			mainGroup = EE43B1CF19547E410017679A;
 			packageReferences = (
-				B4EE6D1522FF3DC2004BC0D4 /* XCRemoteSwiftPackageReference "SMART" */,
+				B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */,
 			);
 			productRefGroup = EE43B1D919547E410017679A /* Products */;
 			projectDirPath = "";
@@ -400,20 +400,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4EE6D1522FF3DC2004BC0D4 /* XCRemoteSwiftPackageReference "SMART" */ = {
+		B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/clinical-cloud/SMART.git";
+			repositoryURL = "https://github.com/clinical-cloud/Swift-SMART.git";
 			requirement = {
-				branch = master;
+				branch = "swift-package";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B4EE6D1622FF3DC2004BC0D4 /* SMART */ = {
+		B4BC3F9423289BC00097F26D /* SMART */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4EE6D1522FF3DC2004BC0D4 /* XCRemoteSwiftPackageReference "SMART" */;
+			package = B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */;
 			productName = SMART;
 		};
 /* End XCSwiftPackageProductDependency section */
