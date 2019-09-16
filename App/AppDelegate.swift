@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let masterNavi = splitViewController.viewControllers[splitViewController.viewControllers.startIndex] as! UINavigationController 
 		let master = masterNavi.topViewController as! MasterViewController
 		master.endpointProvider = endpointProvider
+		master.detailViewController = navigationController.topViewController as? DetailViewController
 		
 		return true
 	}

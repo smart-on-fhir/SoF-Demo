@@ -248,9 +248,11 @@ class ResourceListViewController: UITableViewController {
 	// MARK: - UITableViewDelegate
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		detailViewController!.resource = resources?[indexPath.row]
-		if splitViewController?.isCollapsed ?? true {
-			navigationController?.pushViewController(detailViewController!, animated: true)
+		if let detailViewController = detailViewController {
+			detailViewController.resource = resources?[indexPath.row]
+			if splitViewController?.isCollapsed ?? true {
+				navigationController?.pushViewController(detailViewController, animated: true)
+			}
 		}
 	}
 }
