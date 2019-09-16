@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B4BC3F9523289BC00097F26D /* SMART in Frameworks */ = {isa = PBXBuildFile; productRef = B4BC3F9423289BC00097F26D /* SMART */; };
+		B450BD2623300CA900BA3D89 /* SMART in Frameworks */ = {isa = PBXBuildFile; productRef = B450BD2523300CA900BA3D89 /* SMART */; };
+		B4BC3F9823289DC20097F26D /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = B4BC3F9623289DC20097F26D /* CONTRIBUTING.md */; };
+		B4BC3F9923289DC20097F26D /* CONTRIBUTORS.md in Resources */ = {isa = PBXBuildFile; fileRef = B4BC3F9723289DC20097F26D /* CONTRIBUTORS.md */; };
 		B4FA94B922239D4900BD72A1 /* LenientClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FA94B822239D4900BD72A1 /* LenientClient.swift */; };
 		EE17790219D0A9E200B5826B /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE17790119D0A9E200B5826B /* Launch.storyboard */; };
 		EE3EE2BD1DF2BDA900341419 /* ResourceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EE2BC1DF2BDA900341419 /* ResourceListViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B4BC3F9623289DC20097F26D /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		B4BC3F9723289DC20097F26D /* CONTRIBUTORS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTORS.md; sourceTree = "<group>"; };
 		B4FA94B822239D4900BD72A1 /* LenientClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LenientClient.swift; sourceTree = "<group>"; };
 		EE17790119D0A9E200B5826B /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		EE3EE2BC1DF2BDA900341419 /* ResourceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceListViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4BC3F9523289BC00097F26D /* SMART in Frameworks */,
+				B450BD2623300CA900BA3D89 /* SMART in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +76,8 @@
 		EE43B1CF19547E410017679A = {
 			isa = PBXGroup;
 			children = (
+				B4BC3F9623289DC20097F26D /* CONTRIBUTING.md */,
+				B4BC3F9723289DC20097F26D /* CONTRIBUTORS.md */,
 				EE74D049195C110600393DCA /* README.md */,
 				EEFC6B361DF5D9A500D03A84 /* Endpoints.swift */,
 				EE43B1DA19547E410017679A /* App */,
@@ -134,7 +140,7 @@
 			);
 			name = "SoF-Demo";
 			packageProductDependencies = (
-				B4BC3F9423289BC00097F26D /* SMART */,
+				B450BD2523300CA900BA3D89 /* SMART */,
 			);
 			productName = "SoF-MedList";
 			productReference = EE43B1D819547E410017679A /* SoF-Demo.app */;
@@ -167,7 +173,7 @@
 			);
 			mainGroup = EE43B1CF19547E410017679A;
 			packageReferences = (
-				B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */,
+				B450BD2423300CA900BA3D89 /* XCRemoteSwiftPackageReference "Swift-SMART" */,
 			);
 			productRefGroup = EE43B1D919547E410017679A /* Products */;
 			projectDirPath = "";
@@ -183,8 +189,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BC3F9923289DC20097F26D /* CONTRIBUTORS.md in Resources */,
 				EE43B1E519547E410017679A /* Main.storyboard in Resources */,
 				EE43B1E719547E410017679A /* Images.xcassets in Resources */,
+				B4BC3F9823289DC20097F26D /* CONTRIBUTING.md in Resources */,
 				EE17790219D0A9E200B5826B /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,20 +408,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */ = {
+		B450BD2423300CA900BA3D89 /* XCRemoteSwiftPackageReference "Swift-SMART" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/clinical-cloud/Swift-SMART.git";
+			repositoryURL = "https://github.com/smart-on-fhir/Swift-SMART.git";
 			requirement = {
-				branch = "swift-package";
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B4BC3F9423289BC00097F26D /* SMART */ = {
+		B450BD2523300CA900BA3D89 /* SMART */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B4BC3F9323289BC00097F26D /* XCRemoteSwiftPackageReference "Swift-SMART" */;
+			package = B450BD2423300CA900BA3D89 /* XCRemoteSwiftPackageReference "Swift-SMART" */;
 			productName = SMART;
 		};
 /* End XCSwiftPackageProductDependency section */
